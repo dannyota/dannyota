@@ -1,0 +1,21 @@
+baseURL = "https://danny.vn/"
+languageCode = "en-us"
+title = "Danny"
+theme = "PaperMod"
+[params]
+  author = "Danny"
+  description = "Builder. Breaker. Mostly Go."
+  defaultTheme = "auto"
+  disableScrollToTop = true
+
+  [params.homeInfoParams]
+    Title = "Hey, I'm Danny 👋"
+    Content = """
+I like building things, breaking things (responsibly), and sharing what I learn along the way.
+
+Mostly writing Go these days.
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/dannyota"

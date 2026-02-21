@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="go-import" content="{{ .Params.import_prefix }} git {{ .Params.repo }}">
+  <meta name="go-source" content="{{ .Params.import_prefix }} {{ .Params.repo }} {{ .Params.repo }}/tree/main{/dir} {{ .Params.repo }}/blob/main{/dir}/{file}#L{line}">
+  <meta http-equiv="refresh" content="0; url=https://pkg.go.dev/{{ .Params.import_prefix }}">
+</head>
+<body>
+  Redirecting to <a href="https://pkg.go.dev/{{ .Params.import_prefix }}">pkg.go.dev/{{ .Params.import_prefix }}</a>...
+</body>
+</html>
