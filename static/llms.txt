@@ -1,7 +1,7 @@
 # Danny On The Air (danny.vn)
 
 > Personal site of Danny, a security engineer building open-source security-as-code
-> CLIs and regulatory AI tools in Go, C, and Python. English at /, Vietnamese at /vi/.
+> CLIs and regulatory AI tools in Go, C, and Python.
 
 ## Security as Code
 

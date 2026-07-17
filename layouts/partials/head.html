@@ -8,12 +8,6 @@
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
-{{- if .IsHome }}
-{{- range .AllTranslations }}
-<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
-{{- end }}
-<link rel="alternate" hreflang="x-default" href="{{ .Site.Home.Permalink }}">
-{{- end }}
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
 {{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
@@ -26,11 +20,6 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ replace .Site.Language.LanguageCode "-" "_" }}">
-{{- if .IsHome }}
-{{- range .Translations }}
-<meta property="og:locale:alternate" content="{{ replace .Language.LanguageCode "-" "_" }}">
-{{- end }}
-{{- end }}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ .Site.Params.description }}">
@@ -40,7 +29,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "inLanguage": "{{ .Site.Language.LanguageCode }}",
+  "inLanguage": "en-US",
   "mainEntity": {
     "@type": "Person",
     "name": "Danny",

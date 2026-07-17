@@ -11,13 +11,6 @@
 </main>
 <footer class="statusbar">
   <span class="sb-seg">[danny.vn]</span>
-  <span class="sb-seg sb-lang">
-    {{- if .IsTranslated -}}
-      {{- range .AllTranslations -}}
-        <a href="{{ .Permalink }}" hreflang="{{ .Language.Lang }}"{{ if eq .Language.Lang $.Language.Lang }} class="cur" aria-current="page"{{ end }}>{{ .Language.Lang }}</a>
-      {{- end -}}
-    {{- end -}}
-  </span>
   <span class="sb-seg">
     <a href="{{ .Site.Params.github }}" rel="me">github</a>
   </span>

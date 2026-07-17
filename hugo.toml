@@ -1,26 +1,12 @@
 baseURL = "https://danny.vn/"
 title = "Danny On The Air"
 enableRobotsTXT = true
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+languageCode = "en-US"
 disableKinds = ["taxonomy", "term"]
-
-[languages]
-  [languages.en]
-    languageCode = "en-US"
-    languageName = "English"
-    weight = 1
-    [languages.en.params]
-      description = "Danny On The Air — security engineer building open-source security-as-code CLIs and regulatory AI tools in Go, C, and Python."
-  [languages.vi]
-    languageCode = "vi-VN"
-    languageName = "Tiếng Việt"
-    weight = 2
-    [languages.vi.params]
-      description = "Danny On The Air — kỹ sư bảo mật xây dựng CLI security-as-code mã nguồn mở và công cụ AI pháp lý bằng Go, C và Python."
 
 [params]
   author = "Danny"
+  description = "Danny On The Air — security engineer building open-source security-as-code CLIs and regulatory AI tools in Go, C, and Python."
   keywords = ["Danny On The Air", "danny.vn", "security engineer", "security as code", "Go CLI", "secops", "s1ctl", "splunkctl", "banhmi", "laksa", "open source security tools"]
   github = "https://github.com/dannyota"
 
