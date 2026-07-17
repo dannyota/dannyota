@@ -25,7 +25,7 @@ disableKinds = ["taxonomy", "term"]
   github = "https://github.com/dannyota"
 
 [outputs]
-  home = ["html", "rss"]
+  home = ["html"]
   section = ["html"]
 
 [markup.goldmark.renderer]

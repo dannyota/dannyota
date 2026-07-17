@@ -4,22 +4,22 @@ hero:
   cmd: "whoami"
   greeting: "Chào, mình là Danny 👋"
   intro: |
-    Kỹ sư bảo mật — tự viết những công cụ mình cần và open-source khi chúng có thể giúp ích cho người khác. Chủ yếu dùng Go, C và Python.
+    Kỹ sư bảo mật — tự viết tool mình cần, cái nào hữu ích thì open-source luôn. Chủ yếu viết Go, C và Python.
 sections:
   - cmd: "ls ~/security-as-code/"
     title: "Security as Code"
     body: |
-      Mình tin rằng vận hành bảo mật nên được quản lý phiên bản, diff được và tự động hoá. Những CLI này biến các nền tảng SIEM và EDR đang chạy thành code mà bạn có thể `git diff`:
+      Vận hành bảo mật phải version control được, diff được, và tự động hoá được. Mấy CLI này biến hệ thống SIEM, EDR đang chạy thành code — `git diff` là thấy thay đổi:
 
-      - [`secopsctl`](https://github.com/dannyota/secops) — vận hành Google SecOps (Chronicle SIEM + Siemplify SOAR) dưới dạng code — kéo detection rules, parsers, dashboards và SOAR playbooks về file, review diff, đẩy ngược lại
-      - [`s1ctl`](https://github.com/dannyota/s1ctl) — vận hành SentinelOne Singularity dưới dạng code — agents, policies, exclusions, vòng đời threat, remote shell
-      - [`splunkctl`](https://github.com/dannyota/splunkctl) — vận hành Splunk Enterprise SIEM dưới dạng code — SPL search, detection-as-code YAML, alerts, dashboards, indexes
+      - [`secopsctl`](https://github.com/dannyota/secops) — quản lý Google SecOps (Chronicle SIEM + Siemplify SOAR) bằng code — pull detection rules, parsers, dashboards, SOAR playbooks về file, review diff, rồi push lại
+      - [`s1ctl`](https://github.com/dannyota/s1ctl) — quản lý SentinelOne Singularity bằng code — agents, policies, exclusions, threat lifecycle, remote shell
+      - [`splunkctl`](https://github.com/dannyota/splunkctl) — quản lý Splunk Enterprise SIEM bằng code — SPL search, detection-as-code YAML, alerts, dashboards, indexes
 
-      Cả ba đều có command tree machine-readable và agent guide nhúng sẵn — xây cho cả con người lẫn AI agent.
+      Cả ba đều có command tree machine-readable và agent guide tích hợp sẵn — dùng được cho cả người lẫn AI agent.
   - cmd: "cat regulatory-ai.md"
     title: "AI pháp lý"
     body: |
-      RAG + MCP server chỉ-dựa-trên-bằng-chứng, đưa cho AI của bạn đúng nguyên văn điều khoản pháp lý — không ảo giác, không diễn giải lại. Mỗi kết quả đều kèm link về nguồn chính thức của cơ quan nhà nước để bạn tự kiểm chứng:
+      RAG + MCP server chỉ trả bằng chứng, đưa thẳng nguyên văn điều khoản pháp luật cho AI — không hallucinate, không diễn giải lại. Mỗi kết quả đều có link về nguồn chính thức từ cơ quan nhà nước để tự kiểm chứng:
 
       - [`banhmi`](https://banhmi.danny.vn) — quy định ngân hàng & fintech Việt Nam (Ngân hàng Nhà nước, Bộ Tư pháp)
       - [`laksa`](https://laksa.danny.vn) — quy định ngân hàng & fintech Malaysia (Bank Negara Malaysia, Securities Commission)

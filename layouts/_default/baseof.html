@@ -20,7 +20,6 @@
   </span>
   <span class="sb-seg">
     <a href="{{ .Site.Params.github }}" rel="me">github</a>
-    {{- with site.Home.OutputFormats.Get "rss" }} · <a href="{{ .RelPermalink }}">rss</a>{{ end -}}
   </span>
 </footer>
 {{ $js := resources.Get "js/term.js" | minify | fingerprint "sha384" }}
