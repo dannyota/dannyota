@@ -1,0 +1,103 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#060907">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ .Site.Params.description }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- if .IsHome }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.Home.Permalink }}">
+{{- end }}
+{{- with site.Home.OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23060907'/><text x='14' y='70' font-family='monospace' font-size='54' fill='%2346e07d'>&gt;_</text></svg>">
+{{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "og.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{{ replace .Site.Language.LanguageCode "-" "_" }}">
+{{- if .IsHome }}
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ replace .Language.LanguageCode "-" "_" }}">
+{{- end }}
+{{- end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ .Site.Params.description }}">
+<meta name="twitter:image" content="{{ "og.png" | absURL }}">
+{{- if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "inLanguage": "{{ .Site.Language.LanguageCode }}",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Danny",
+    "alternateName": "Danny On The Air",
+    "url": "https://danny.vn",
+    "jobTitle": "Security Engineer",
+    "description": {{ .Site.Params.description | jsonify }},
+    "image": "https://danny.vn/og.png",
+    "knowsAbout": [
+      {
+        "@type": "Thing",
+        "name": "Cybersecurity",
+        "sameAs": "https://en.wikipedia.org/wiki/Computer_security"
+      },
+      {
+        "@type": "Thing",
+        "name": "Go (programming language)",
+        "sameAs": "https://en.wikipedia.org/wiki/Go_(programming_language)"
+      },
+      {
+        "@type": "Thing",
+        "name": "Security information and event management",
+        "sameAs": "https://en.wikipedia.org/wiki/Security_information_and_event_management"
+      },
+      {
+        "@type": "Thing",
+        "name": "Endpoint detection and response",
+        "sameAs": "https://en.wikipedia.org/wiki/Endpoint_detection_and_response"
+      },
+      {
+        "@type": "Thing",
+        "name": "Infrastructure as code",
+        "sameAs": "https://en.wikipedia.org/wiki/Infrastructure_as_code"
+      },
+      {
+        "@type": "Thing",
+        "name": "Python (programming language)",
+        "sameAs": "https://en.wikipedia.org/wiki/Python_(programming_language)"
+      },
+      {
+        "@type": "Thing",
+        "name": "C (programming language)",
+        "sameAs": "https://en.wikipedia.org/wiki/C_(programming_language)"
+      },
+      {
+        "@type": "Thing",
+        "name": "Regulatory technology",
+        "sameAs": "https://en.wikipedia.org/wiki/Regulatory_technology"
+      }
+    ],
+    "sameAs": [
+      "https://github.com/dannyota"
+    ]
+  }
+}
+</script>
+{{- end }}

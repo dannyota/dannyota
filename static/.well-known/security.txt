@@ -1,0 +1,4 @@
+Contact: mailto:danh.software@outlook.com
+Expires: 2027-07-17T00:00:00.000Z
+Preferred-Languages: en, vi
+Canonical: https://danny.vn/.well-known/security.txt

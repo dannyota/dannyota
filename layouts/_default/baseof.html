@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.LanguageCode }}" class="no-js">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<div class="crt" aria-hidden="true"></div>
+<main id="main">
+{{ block "main" . }}{{ end }}
+</main>
+<footer class="statusbar">
+  <span class="sb-seg">[danny.vn]</span>
+  <span class="sb-seg sb-lang">
+    {{- if .IsTranslated -}}
+      {{- range .AllTranslations -}}
+        <a href="{{ .Permalink }}" hreflang="{{ .Language.Lang }}"{{ if eq .Language.Lang $.Language.Lang }} class="cur" aria-current="page"{{ end }}>{{ .Language.Lang }}</a>
+      {{- end -}}
+    {{- end -}}
+  </span>
+  <span class="sb-seg">
+    <a href="{{ .Site.Params.github }}" rel="me">github</a>
+    {{- with site.Home.OutputFormats.Get "rss" }} · <a href="{{ .RelPermalink }}">rss</a>{{ end -}}
+  </span>
+</footer>
+{{ $js := resources.Get "js/term.js" | minify | fingerprint "sha384" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="hero">
+  <p class="promptline" aria-hidden="true"><span class="prompt">danny@danny.vn</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd">cd $REQUEST_PATH</span></p>
+  <div class="output">
+    <h1 class="err">-bash: cd: no such file or directory <span class="dim">(404)</span></h1>
+    <p><a href="{{ .Site.Home.Permalink }}">cd ~</a> to go back home.</p>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<p class="lastlogin" aria-hidden="true">Last login: {{ now.UTC.Format "Mon Jan _2 15:04:05 2006" }} UTC from 127.0.0.1</p>
+
+<section class="hero">
+  <p class="promptline" aria-hidden="true"><span class="prompt">danny@danny.vn</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd" id="hero-cmd">{{ .Params.hero.cmd }}</span><span class="cursor"></span></p>
+  <div class="output">
+    <h1>{{ .Params.hero.greeting }}</h1>
+    {{ .Params.hero.intro | markdownify }}
+  </div>
+</section>
+
+{{ range $i, $s := .Params.sections }}
+<section class="entry" style="--i:{{ $i }}">
+  <h2>
+    <span class="sr-only">{{ $s.title }}</span>
+    <span class="promptline" aria-hidden="true"><span class="prompt">danny@danny.vn</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd">{{ $s.cmd }}</span></span>
+  </h2>
+  <div class="output">
+    {{ $s.body | markdownify }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

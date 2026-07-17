@@ -1,0 +1,32 @@
+# Danny On The Air (danny.vn)
+
+> Personal site of Danny, a security engineer building open-source security-as-code
+> CLIs and regulatory AI tools in Go, C, and Python. English at /, Vietnamese at /vi/.
+
+## Security as Code
+
+- [secopsctl](https://github.com/dannyota/secops): operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code
+- [s1ctl](https://github.com/dannyota/s1ctl): operate SentinelOne Singularity as code
+- [splunkctl](https://github.com/dannyota/splunkctl): operate Splunk Enterprise SIEM as code
+
+## Regulatory AI
+
+- [banhmi](https://github.com/dannyota/banhmi): evidence-only RAG + MCP server for Vietnamese banking & fintech regulation
+- [laksa](https://laksa.danny.vn): evidence-only RAG + MCP server for Malaysian banking & fintech regulation
+
+## Go SDKs (vanity imports on danny.vn)
+
+- danny.vn/s1: SentinelOne Singularity
+- danny.vn/secops: Google SecOps
+- danny.vn/fortigate: FortiGate firewall REST API
+- danny.vn/fortimgr: FortiManager FlatUI API
+- danny.vn/nessus: Tenable Nessus scanner (read-only)
+- danny.vn/vngcloud: VNG Cloud IAM
+- danny.vn/kaggle: Kaggle API
+
+## Other
+
+- [offthebook](https://github.com/dannyota/offthebook): memory-only Windows PE execution research
+- [byway](https://github.com/dannyota/byway): per-app VPN bypass on Linux
+- [flowcvcli](https://github.com/dannyota/flowcvcli): FlowCV résumé CLI
+- All repositories: https://github.com/dannyota
