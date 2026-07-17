@@ -41,7 +41,7 @@ Small, focused clients for security and cloud platforms — each one `go get`-ab
 
 ### 🔧 Other Tools
 
-- [`byway`](https://github.com/dannyota/byway) — transparent per-app VPN bypass on Linux using cgroup v2 + nftables + policy routing
+- [`onnxruntime`](https://github.com/dannyota/onnxruntime) — ONNX Runtime — cross-platform, high performance ML inferencing and training accelerator
 - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — drive a FlowCV résumé from the command line or Python — content, design, templates, avatar, publish & PDF export
 
 More at [danny.vn](https://danny.vn).

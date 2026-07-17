@@ -31,6 +31,6 @@ One codebase (github.com/dannyota/banhmi), one corpus per country. Free MCP endp
 ## Other
 
 - [offthebook](https://github.com/dannyota/offthebook): memory-only Windows PE execution research
-- [byway](https://github.com/dannyota/byway): per-app VPN bypass on Linux
+- [onnxruntime](https://github.com/dannyota/onnxruntime): ONNX Runtime — cross-platform ML inferencing and training accelerator
 - [flowcvcli](https://github.com/dannyota/flowcvcli): FlowCV résumé CLI
 - All repositories: https://github.com/dannyota

@@ -49,7 +49,7 @@ sections:
     title: "Other Tools"
     body: |
       - [`splunk-sdk-python`](https://github.com/dannyota/splunk-sdk-python) — Splunk SDK for Python — complements splunkctl for Python-native workflows
-      - [`byway`](https://github.com/dannyota/byway) — transparent per-app VPN bypass on Linux using cgroup v2 + nftables + policy routing
+      - [`onnxruntime`](https://github.com/dannyota/onnxruntime) — ONNX Runtime — cross-platform, high performance ML inferencing and training accelerator
       - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — drive a FlowCV résumé from the command line or Python — content, design, templates, avatar, publish & PDF export
   - cmd: "git remote -v"
     title: "GitHub"
