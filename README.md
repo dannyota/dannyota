@@ -41,7 +41,7 @@ Small, focused clients for security and cloud platforms — each one `go get`-ab
 
 ### 🔧 Other Tools
 
-- [`onnxruntime`](https://github.com/dannyota/onnxruntime) — ONNX Runtime — cross-platform, high performance ML inferencing and training accelerator
+- [`onnxruntime/go`](https://github.com/microsoft/onnxruntime/pull/29615) — official Go bindings for ONNX Runtime C API via CGO (open PR on microsoft/onnxruntime)
 - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — drive a FlowCV résumé from the command line or Python — content, design, templates, avatar, publish & PDF export
 
 More at [danny.vn](https://danny.vn).
