@@ -14,10 +14,12 @@ All three ship with machine-readable command trees and embedded agent guides —
 
 ### 📜 Regulatory AI
 
-Evidence-only RAG + MCP servers that hand your AI exact legal provisions — no hallucination, no paraphrasing:
+Evidence-only RAG + MCP servers that hand your AI exact legal provisions — no hallucination, no paraphrasing. One codebase, one corpus per country:
 
-- [`banhmi`](https://github.com/dannyota/banhmi) — Vietnamese banking & fintech regulation (State Bank of Vietnam, Ministry of Justice)
+- [`banhmi`](https://banhmi.danny.vn) — Vietnamese banking & fintech regulation (State Bank of Vietnam, Ministry of Justice)
 - [`laksa`](https://laksa.danny.vn) — Malaysian banking & fintech regulation (Bank Negara Malaysia, Securities Commission)
+- [`rendang`](https://rendang.danny.vn) — Indonesian banking & fintech regulation (OJK, Bank Indonesia)
+- [`kaya`](https://kaya.danny.vn) — Singaporean banking & fintech regulation (MAS)
 
 ### 📦 Go SDKs
 

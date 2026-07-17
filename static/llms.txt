@@ -11,8 +11,12 @@
 
 ## Regulatory AI
 
-- [banhmi](https://github.com/dannyota/banhmi): evidence-only RAG + MCP server for Vietnamese banking & fintech regulation
-- [laksa](https://laksa.danny.vn): evidence-only RAG + MCP server for Malaysian banking & fintech regulation
+One codebase (github.com/dannyota/banhmi), one corpus per country. Free MCP endpoints, no signup:
+
+- [banhmi](https://banhmi.danny.vn): Vietnamese banking & fintech regulation (MCP: banhmi.danny.vn/mcp)
+- [laksa](https://laksa.danny.vn): Malaysian banking & fintech regulation (MCP: laksa.danny.vn/mcp)
+- [rendang](https://rendang.danny.vn): Indonesian banking & fintech regulation (MCP: rendang.danny.vn/mcp)
+- [kaya](https://kaya.danny.vn): Singaporean banking & fintech regulation (MCP: kaya.danny.vn/mcp)
 
 ## Go SDKs (vanity imports on danny.vn)
 

@@ -17,7 +17,7 @@
 {{- with site.Home.OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
 {{- end }}
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23060907'/><text x='14' y='70' font-family='monospace' font-size='54' fill='%2346e07d'>&gt;_</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
 {{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 <meta property="og:type" content="website">
@@ -95,7 +95,11 @@
       }
     ],
     "sameAs": [
-      "https://github.com/dannyota"
+      "https://github.com/dannyota",
+      "https://banhmi.danny.vn",
+      "https://laksa.danny.vn",
+      "https://rendang.danny.vn",
+      "https://kaya.danny.vn"
     ]
   }
 }

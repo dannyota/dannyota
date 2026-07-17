@@ -21,8 +21,12 @@ sections:
     body: |
       Evidence-only RAG + MCP servers that hand your AI exact legal provisions — no hallucination, no paraphrasing. Every hit links to the official government source so you can verify the exact wording yourself:
 
-      - [`banhmi`](https://github.com/dannyota/banhmi) — Vietnamese banking & fintech regulation (State Bank of Vietnam, Ministry of Justice)
+      - [`banhmi`](https://banhmi.danny.vn) — Vietnamese banking & fintech regulation (State Bank of Vietnam, Ministry of Justice)
       - [`laksa`](https://laksa.danny.vn) — Malaysian banking & fintech regulation (Bank Negara Malaysia, Securities Commission)
+      - [`rendang`](https://rendang.danny.vn) — Indonesian banking & fintech regulation (OJK, Bank Indonesia, BPK JDIH)
+      - [`kaya`](https://kaya.danny.vn) — Singaporean banking & fintech regulation (MAS)
+
+      One codebase, one corpus per country. All free, no signup — just add the MCP endpoint to Claude, ChatGPT, Grok, or Gemini.
   - cmd: "go list danny.vn/..."
     title: "Go SDKs"
     body: |

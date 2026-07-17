@@ -21,8 +21,12 @@ sections:
     body: |
       RAG + MCP server chỉ-dựa-trên-bằng-chứng, đưa cho AI của bạn đúng nguyên văn điều khoản pháp lý — không ảo giác, không diễn giải lại. Mỗi kết quả đều kèm link về nguồn chính thức của cơ quan nhà nước để bạn tự kiểm chứng:
 
-      - [`banhmi`](https://github.com/dannyota/banhmi) — quy định ngân hàng & fintech Việt Nam (Ngân hàng Nhà nước, Bộ Tư pháp)
+      - [`banhmi`](https://banhmi.danny.vn) — quy định ngân hàng & fintech Việt Nam (Ngân hàng Nhà nước, Bộ Tư pháp)
       - [`laksa`](https://laksa.danny.vn) — quy định ngân hàng & fintech Malaysia (Bank Negara Malaysia, Securities Commission)
+      - [`rendang`](https://rendang.danny.vn) — quy định ngân hàng & fintech Indonesia (OJK, Bank Indonesia, BPK JDIH)
+      - [`kaya`](https://kaya.danny.vn) — quy định ngân hàng & fintech Singapore (MAS)
+
+      Một codebase, một corpus cho mỗi quốc gia. Miễn phí, không cần đăng ký — chỉ cần thêm MCP endpoint vào Claude, ChatGPT, Grok hoặc Gemini.
   - cmd: "go list danny.vn/..."
     title: "Go SDK"
     body: |
