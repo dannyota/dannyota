@@ -11,11 +11,11 @@ sections:
     body: |
       I believe security operations should be versionable, diffable, and automated. These CLIs turn live SIEM and EDR platforms into code you can `git diff`:
 
+      - [`splunkctl`](https://github.com/dannyota/splunkctl) — operate Splunk Enterprise SIEM + Splunk SOAR as code — state pull → diff → push across rules, parsers, macros, lookups, dashboards, and SOAR playbooks-as-code, plus ES incident review and SIEM-to-SOAR ingest
+      - [`s1ctl`](https://github.com/dannyota/s1ctl) — operate SentinelOne Singularity as code — pull/diff/push across 11 surfaces with `drift` for CI, agents, threats, remote ops, xSPM, marketplace, and Data Lake queries
       - [`secopsctl`](https://github.com/dannyota/secops) — operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code — pull detection rules, parsers, dashboards, and SOAR playbooks into files, review the diff, push back
-      - [`s1ctl`](https://github.com/dannyota/s1ctl) — operate SentinelOne Singularity as code — agents, policies, exclusions, threat lifecycle, remote shell
-      - [`splunkctl`](https://github.com/dannyota/splunkctl) — operate Splunk Enterprise SIEM as code — SPL search, detection-as-code YAML, alerts, dashboards, indexes
 
-      All three ship with machine-readable command trees and embedded agent guides — built for both humans and AI agents.
+      All three ship a built-in MCP server, machine-readable command trees, and embedded agent guides — and every mutation is dry-run until `--yes`.
   - cmd: "cat regulatory-ai.md"
     title: "Regulatory AI"
     body: |

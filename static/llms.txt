@@ -6,9 +6,11 @@
 
 ## Security as Code
 
+All three ship a built-in MCP server; every mutation is dry-run by default.
+
+- [splunkctl](https://github.com/dannyota/splunkctl): operate Splunk Enterprise SIEM + Splunk SOAR as code
+- [s1ctl](https://github.com/dannyota/s1ctl): operate SentinelOne Singularity Platform as code
 - [secopsctl](https://github.com/dannyota/secops): operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code
-- [s1ctl](https://github.com/dannyota/s1ctl): operate SentinelOne Singularity as code
-- [splunkctl](https://github.com/dannyota/splunkctl): operate Splunk Enterprise SIEM as code
 
 ## Regulatory AI
 
