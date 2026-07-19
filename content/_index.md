@@ -21,12 +21,14 @@ sections:
     body: |
       Evidence-only RAG + MCP servers that hand your AI exact legal provisions — no hallucination, no paraphrasing. Every hit links to the official government source so you can verify the exact wording yourself:
 
-      - [`banhmi`](https://banhmi.danny.vn) — Vietnamese banking & fintech regulation (State Bank of Vietnam, Ministry of Justice)
-      - [`laksa`](https://laksa.danny.vn) — Malaysian banking & fintech regulation (Bank Negara Malaysia, Securities Commission)
-      - [`rendang`](https://rendang.danny.vn) — Indonesian banking & fintech regulation (OJK, Bank Indonesia, BPK JDIH)
-      - [`kaya`](https://kaya.danny.vn) — Singaporean banking & fintech regulation (MAS, PDPC, CSA)
-      - [`tomyum`](https://tomyum.danny.vn) — Thai banking & fintech regulation (Bank of Thailand, SEC, ETDA)
-      - [`amok`](https://amok.danny.vn) — Cambodian banking & fintech regulation (National Bank of Cambodia)
+      | Server | Jurisdiction | Official sources |
+      |--------|--------------|------------------|
+      | [`banhmi`](https://banhmi.danny.vn) | 🇻🇳 Vietnam | State Bank of Vietnam · Ministry of Justice |
+      | [`laksa`](https://laksa.danny.vn) | 🇲🇾 Malaysia | Bank Negara Malaysia · Securities Commission |
+      | [`rendang`](https://rendang.danny.vn) | 🇮🇩 Indonesia | OJK · Bank Indonesia · BPK JDIH |
+      | [`kaya`](https://kaya.danny.vn) | 🇸🇬 Singapore | MAS · PDPC · CSA |
+      | [`tomyum`](https://tomyum.danny.vn) | 🇹🇭 Thailand | Bank of Thailand · SEC · ETDA |
+      | [`amok`](https://amok.danny.vn) | 🇰🇭 Cambodia | National Bank of Cambodia |
 
       One codebase, one corpus per country — six ASEAN jurisdictions and counting. All free, no signup — just add the MCP endpoint to Claude, ChatGPT, Grok, or Gemini.
 
