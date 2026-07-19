@@ -1,7 +1,8 @@
 # Danny On The Air (danny.vn)
 
-> Personal site of Danny, a security engineer building open-source security-as-code
-> CLIs and regulatory AI tools in Go, C, and Python.
+> Personal site of Danny, a security engineer in Vietnam building open-source
+> security-as-code CLIs, evidence-only regulatory & compliance AI (RAG + MCP),
+> and Go SDKs.
 
 ## Security as Code
 
@@ -11,12 +12,25 @@
 
 ## Regulatory AI
 
-One codebase (github.com/dannyota/banhmi), one corpus per country. Free MCP endpoints, no signup:
+One codebase (github.com/dannyota/banhmi), one corpus per country — six ASEAN
+jurisdictions. Free remote MCP endpoints (Streamable HTTP), no signup.
+Tools: search, document, corpus_status, quality_gaps, guide.
 
-- [banhmi](https://banhmi.danny.vn): Vietnamese banking & fintech regulation (MCP: banhmi.danny.vn/mcp)
-- [laksa](https://laksa.danny.vn): Malaysian banking & fintech regulation (MCP: laksa.danny.vn/mcp)
-- [rendang](https://rendang.danny.vn): Indonesian banking & fintech regulation (MCP: rendang.danny.vn/mcp)
-- [kaya](https://kaya.danny.vn): Singaporean banking & fintech regulation (MCP: kaya.danny.vn/mcp)
+- [banhmi](https://banhmi.danny.vn): Vietnamese banking & fintech regulation (MCP: banhmi.danny.vn/mcp, ask in Vietnamese)
+- [laksa](https://laksa.danny.vn): Malaysian banking & fintech regulation (MCP: laksa.danny.vn/mcp, ask in English)
+- [rendang](https://rendang.danny.vn): Indonesian banking & fintech regulation (MCP: rendang.danny.vn/mcp, ask in Indonesian)
+- [kaya](https://kaya.danny.vn): Singaporean banking & fintech regulation (MCP: kaya.danny.vn/mcp, ask in English)
+- [tomyum](https://tomyum.danny.vn): Thai banking & fintech regulation (MCP: tomyum.danny.vn/mcp, ask in Thai)
+- [amok](https://amok.danny.vn): Cambodian banking & fintech regulation (MCP: amok.danny.vn/mcp, ask in English)
+
+## Compliance AI
+
+- [compliary](https://github.com/dannyota/compliary): evidence-only corpus + MCP server
+  for the security control frameworks organizations are audited against — ISO/IEC 27001
+  family (27001/27002/27017/27018/27701), ISO 22301, ISO/IEC 42001, NIST CSF 2.0,
+  NIST SP 800-53 r5, SOC 2, PCI DSS v4.0.1, CIS Controls v8.1, SWIFT CSCF, CSA CCM v4.1,
+  COBIT 2019. Framework text is licensed, so operators self-deploy their own instance;
+  there is no shared public endpoint.
 
 ## Go SDKs (vanity imports on danny.vn)
 

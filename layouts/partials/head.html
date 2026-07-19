@@ -9,7 +9,7 @@
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
 {{ $theme := resources.Get "js/theme.js" | minify | fingerprint "sha384" }}
 <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
@@ -20,13 +20,16 @@
 <meta property="og:description" content="{{ .Site.Params.description }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image" content="{{ "og.png" | absURL }}">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Green phosphor terminal — Danny On The Air: Security Engineer · Vietnam">
 <meta property="og:locale" content="{{ replace .Site.Language.LanguageCode "-" "_" }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ .Site.Params.description }}">
 <meta name="twitter:image" content="{{ "og.png" | absURL }}">
+<meta name="twitter:image:alt" content="Green phosphor terminal — Danny On The Air: Security Engineer · Vietnam">
 {{- if .IsHome }}
 <script type="application/ld+json">
 {
@@ -39,6 +42,7 @@
     "alternateName": "Danny On The Air",
     "url": "https://danny.vn",
     "jobTitle": "Security Engineer",
+    "homeLocation": { "@type": "Country", "name": "Vietnam" },
     "description": {{ .Site.Params.description | jsonify }},
     "image": "https://danny.vn/og.png",
     "knowsAbout": [
@@ -81,6 +85,11 @@
         "@type": "Thing",
         "name": "Regulatory technology",
         "sameAs": "https://en.wikipedia.org/wiki/Regulatory_technology"
+      },
+      {
+        "@type": "Thing",
+        "name": "Governance, risk management, and compliance",
+        "sameAs": "https://en.wikipedia.org/wiki/Governance,_risk_management,_and_compliance"
       }
     ],
     "sameAs": [
@@ -93,6 +102,20 @@
       "https://amok.danny.vn"
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Open-source projects by Danny",
+  "itemListElement": [
+    { "@type": "SoftwareApplication", "position": 1, "name": "secopsctl", "url": "https://github.com/dannyota/secops", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code" },
+    { "@type": "SoftwareApplication", "position": 2, "name": "s1ctl", "url": "https://github.com/dannyota/s1ctl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Operate SentinelOne Singularity EDR as code" },
+    { "@type": "SoftwareApplication", "position": 3, "name": "splunkctl", "url": "https://github.com/dannyota/splunkctl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Operate Splunk Enterprise SIEM as code" },
+    { "@type": "SoftwareApplication", "position": 4, "name": "banhmi", "url": "https://banhmi.danny.vn", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Evidence-only RAG + MCP servers for Southeast-Asian banking & fintech regulation — six jurisdictions: Vietnam, Malaysia, Indonesia, Singapore, Thailand, Cambodia" },
+    { "@type": "SoftwareApplication", "position": 5, "name": "compliary", "url": "https://github.com/dannyota/compliary", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Evidence-only corpus + MCP server for security & compliance control frameworks: ISO/IEC 27001 family, NIST CSF & SP 800-53, PCI DSS, SOC 2, CIS Controls, SWIFT CSCF, CSA CCM, COBIT" }
+  ]
 }
 </script>
 {{- end }}

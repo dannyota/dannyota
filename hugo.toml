@@ -6,8 +6,8 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   author = "Danny"
-  description = "Danny On The Air — security engineer building open-source security-as-code CLIs and regulatory AI tools in Go, C, and Python."
-  keywords = ["Danny On The Air", "danny.vn", "security engineer", "security as code", "Go CLI", "secops", "s1ctl", "splunkctl", "banhmi", "laksa", "open source security tools"]
+  description = "Danny On The Air — security engineer in Vietnam building open-source security-as-code CLIs, evidence-only regulatory & compliance AI MCP servers, and Go SDKs."
+  keywords = ["Danny On The Air", "danny.vn", "security engineer", "Vietnam", "security as code", "Go CLI", "secops", "s1ctl", "splunkctl", "banhmi", "laksa", "rendang", "kaya", "tomyum", "amok", "compliary", "MCP server", "regulatory AI", "compliance AI", "open source security tools"]
   github = "https://github.com/dannyota"
 
 [outputs]

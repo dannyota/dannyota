@@ -21,6 +21,12 @@ Disallow: /
 User-agent: Amazonbot
 Disallow: /
 
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
 # Search/retrieval crawlers — allow
 User-agent: OAI-SearchBot
 Allow: /
@@ -35,4 +41,13 @@ User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
 Allow: /
