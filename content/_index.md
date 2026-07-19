@@ -24,9 +24,13 @@ sections:
       - [`banhmi`](https://banhmi.danny.vn) — Vietnamese banking & fintech regulation (State Bank of Vietnam, Ministry of Justice)
       - [`laksa`](https://laksa.danny.vn) — Malaysian banking & fintech regulation (Bank Negara Malaysia, Securities Commission)
       - [`rendang`](https://rendang.danny.vn) — Indonesian banking & fintech regulation (OJK, Bank Indonesia, BPK JDIH)
-      - [`kaya`](https://kaya.danny.vn) — Singaporean banking & fintech regulation (MAS)
+      - [`kaya`](https://kaya.danny.vn) — Singaporean banking & fintech regulation (MAS, PDPC, CSA)
+      - [`tomyum`](https://tomyum.danny.vn) — Thai banking & fintech regulation (Bank of Thailand, SEC, ETDA)
+      - [`amok`](https://amok.danny.vn) — Cambodian banking & fintech regulation (National Bank of Cambodia)
 
-      One codebase, one corpus per country. All free, no signup — just add the MCP endpoint to Claude, ChatGPT, Grok, or Gemini.
+      One codebase, one corpus per country — six ASEAN jurisdictions and counting. All free, no signup — just add the MCP endpoint to Claude, ChatGPT, Grok, or Gemini.
+
+      Next up: [`compliary`](https://github.com/dannyota/compliary) — the same evidence-only approach for the security control frameworks organizations are audited against (ISO/IEC 27001, NIST CSF & SP 800-53, PCI DSS, SOC 2, CIS). In development.
   - cmd: "go list danny.vn/..."
     title: "Go SDKs"
     body: |
