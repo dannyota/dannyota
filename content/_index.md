@@ -68,11 +68,12 @@ sections:
       | [`fortimgr`](/fortimgr) | FortiManager FlatUI API |
       | [`nessus`](/nessus) | Tenable Nessus scanner (read-only) |
       | [`vngcloud`](/vngcloud) | VNG Cloud IAM |
+      | [`gnode`](/gnode) | VNG Cloud GreenNode services — unofficial community SDK |
       | [`kaggle`](/kaggle) | Kaggle API — kernels, datasets, token introspection |
   - cmd: "cat research/offthebook.txt"
     title: "Security Research"
     body: |
-      - [`offthebook`](https://github.com/dannyota/offthebook) — memory-only Windows PE execution via SMB-over-QUIC SEC_IMAGE loading, with position-independent shellcode in pure C (MSVC + Clang)
+      - [`offthebook`](https://github.com/dannyota/offthebook) — memory-only Windows PE execution, loader-state reconstruction, and SMB-over-QUIC SEC_IMAGE loading — position-independent shellcode in pure C (MSVC + Clang)
   - cmd: "ls ~/tools/"
     title: "Other Tools"
     body: |

@@ -42,6 +42,7 @@ Tools: search, document, corpus_status, quality_gaps, guide.
 - danny.vn/fortimgr: FortiManager FlatUI API
 - danny.vn/nessus: Tenable Nessus scanner (read-only)
 - danny.vn/vngcloud: VNG Cloud IAM
+- danny.vn/gnode: VNG Cloud GreenNode services (unofficial community SDK)
 - danny.vn/kaggle: Kaggle API
 
 ## Other
