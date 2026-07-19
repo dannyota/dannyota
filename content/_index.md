@@ -31,8 +31,30 @@ sections:
       | [`amok`](https://amok.danny.vn) | 🇰🇭 Cambodia | National Bank of Cambodia |
 
       One codebase, one corpus per country — six ASEAN jurisdictions and counting. All free, no signup — just add the MCP endpoint to Claude, ChatGPT, Grok, or Gemini.
+  - cmd: "cat compliance-ai.md"
+    title: "Compliance AI"
+    body: |
+      Same evidence-only approach, pointed at what auditors ask for: [`compliary`](https://github.com/dannyota/compliary) serves the control frameworks organizations are audited against — exact control citations (`A.5.1`, `AC-2(3)`, `Req 8.3.6`), version lineage so superseded text is never presented as current, and cross-framework mappings with provenance:
 
-      Next up: [`compliary`](https://github.com/dannyota/compliary) — the same evidence-only approach for the security control frameworks organizations are audited against (ISO/IEC 27001, NIST CSF & SP 800-53, PCI DSS, SOC 2, CIS). In development.
+      | Framework | Covers | Publisher |
+      |-----------|--------|-----------|
+      | ISO/IEC 27001 | Information security management (ISMS) | ISO/IEC |
+      | ISO/IEC 27002 | Information security controls | ISO/IEC |
+      | ISO/IEC 27017 | Cloud security controls | ISO/IEC |
+      | ISO/IEC 27018 | PII protection in public clouds | ISO/IEC |
+      | ISO/IEC 27701 | Privacy information management | ISO/IEC |
+      | ISO 22301 | Business continuity management | ISO |
+      | ISO/IEC 42001 | AI management systems | ISO/IEC |
+      | NIST CSF 2.0 | Cybersecurity risk framework | NIST |
+      | NIST SP 800-53 r5 | Security & privacy control catalog | NIST |
+      | SOC 2 | Service-organization trust criteria | AICPA |
+      | PCI DSS v4.0.1 | Payment card data security | PCI SSC |
+      | CIS Controls v8.1 | Prioritized defensive safeguards | CIS |
+      | SWIFT CSCF v2026 | SWIFT member security controls | SWIFT |
+      | CSA CCM v4.1 | Cloud controls matrix | CSA |
+      | COBIT 2019 | IT governance & management | ISACA |
+
+      Framework text is licensed, so there's no shared public endpoint — the repo ships code + metadata only, and every operator builds their own corpus and runs their own private MCP instance.
   - cmd: "go list danny.vn/..."
     title: "Go SDKs"
     body: |
