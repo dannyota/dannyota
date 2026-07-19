@@ -2,13 +2,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#060907">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#060907">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2efe4">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+{{ $theme := resources.Get "js/theme.js" | minify | fingerprint "sha384" }}
+<script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 <meta property="og:type" content="website">
@@ -85,7 +88,9 @@
       "https://banhmi.danny.vn",
       "https://laksa.danny.vn",
       "https://rendang.danny.vn",
-      "https://kaya.danny.vn"
+      "https://kaya.danny.vn",
+      "https://tomyum.danny.vn",
+      "https://amok.danny.vn"
     ]
   }
 }

@@ -14,6 +14,9 @@
   <span class="sb-seg">
     <a href="{{ .Site.Params.github }}" rel="me">github</a>
   </span>
+  <span class="sb-seg">
+    <button type="button" class="sb-theme" id="theme-toggle">theme</button>
+  </span>
 </footer>
 {{ $js := resources.Get "js/term.js" | minify | fingerprint "sha384" }}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
