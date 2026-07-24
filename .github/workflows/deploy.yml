@@ -22,7 +22,7 @@ jobs:
       HUGO_SHA256: "88e28cdec01f4bb17bfc8173e6cbe9dc1df6fadb3874c6a659a9c1b860431e4c"
     steps:
       - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Pages
         id: pages
