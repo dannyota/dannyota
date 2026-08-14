@@ -4,22 +4,22 @@ hero:
   cmd: "whoami"
   greeting: "Hey, I'm Danny 👋"
   intro: |
-    Security engineer who writes the tools I need and open-sources them when they might help someone else. Mostly Go, C, and Python.
+    I'm a security engineer in Vietnam. I build tools for security operations, regulatory research, and systems work—mostly in Go, C, and Python. When something I build could help others, I open-source it.
 sections:
   - cmd: "ls ~/security-as-code/"
     title: "Security as Code"
     body: |
-      I believe security operations should be versionable, diffable, and automated. These CLIs turn live SIEM and EDR platforms into code you can `git diff`:
+      Security operations should be reviewable like code. I build CLIs that pull live platform state into files, show meaningful diffs, and push approved changes back:
 
-      - [`splunkctl`](https://github.com/dannyota/splunkctl) — operate Splunk Enterprise SIEM + Splunk SOAR as code — state pull → diff → push across rules, parsers, macros, lookups, dashboards, and SOAR playbooks-as-code, plus ES incident review and SIEM-to-SOAR ingest
-      - [`s1ctl`](https://github.com/dannyota/s1ctl) — operate SentinelOne Singularity as code — pull/diff/push across 11 surfaces with `drift` for CI, agents, threats, remote ops, xSPM, marketplace, and Data Lake queries
-      - [`secopsctl`](https://github.com/dannyota/secops) — operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code — pull detection rules, parsers, dashboards, and SOAR playbooks into files, review the diff, push back
+      - [`splunkctl`](https://github.com/dannyota/splunkctl) — Splunk Enterprise SIEM and Splunk SOAR — rules, parsers, macros, lookups, dashboards, SOAR playbooks, incident review, and SIEM-to-SOAR ingest
+      - [`s1ctl`](https://github.com/dannyota/s1ctl) — SentinelOne Singularity — configuration across 11 surfaces, drift detection for CI, agents, threats, remote operations, xSPM, marketplace, and Data Lake queries
+      - [`secopsctl`](https://github.com/dannyota/secops) — Google SecOps (Chronicle SIEM and Siemplify SOAR) — detection rules, parsers, dashboards, and SOAR playbooks
 
-      All three ship a built-in MCP server, machine-readable command trees, and embedded agent guides — and every mutation is dry-run until `--yes`.
+      All three include a built-in Model Context Protocol (MCP) server, machine-readable command trees, and embedded agent guides. Changes are dry-run until `--yes`.
   - cmd: "cat regulatory-ai.md"
     title: "Regulatory AI"
     body: |
-      Evidence-only RAG + MCP servers that hand your AI exact legal provisions — no hallucination, no paraphrasing. Every hit links to the official government source so you can verify the exact wording yourself:
+      Regulatory answers should point back to the law. These retrieval-augmented generation (RAG) and MCP servers find exact provisions in official sources and link each result to the source text:
 
       | Server | Jurisdiction | Official sources |
       |--------|--------------|------------------|
@@ -30,11 +30,11 @@ sections:
       | [`tomyum`](https://tomyum.danny.vn) | 🇹🇭 Thailand | Bank of Thailand · SEC · ETDA |
       | [`amok`](https://amok.danny.vn) | 🇰🇭 Cambodia | National Bank of Cambodia |
 
-      One codebase, one corpus per country — six ASEAN jurisdictions and counting. All free, no signup — just add the MCP endpoint to Claude, ChatGPT, Grok, or Gemini.
+      One codebase, one corpus per country, across six ASEAN jurisdictions. The public endpoints are free and require no signup.
   - cmd: "cat compliance-ai.md"
     title: "Compliance AI"
     body: |
-      Same evidence-only approach, pointed at what auditors ask for: [`compliary`](https://github.com/dannyota/compliary) serves the control frameworks organizations are audited against — exact control citations (`A.5.1`, `AC-2(3)`, `Req 8.3.6`), version lineage so superseded text is never presented as current, and cross-framework mappings with provenance:
+      [`compliary`](https://github.com/dannyota/compliary) applies the same approach to security and compliance frameworks. It returns exact control citations (`A.5.1`, `AC-2(3)`, `Req 8.3.6`), tracks version lineage so superseded text is not presented as current, and records the provenance of cross-framework mappings:
 
       | Framework | Covers | Publisher |
       |-----------|--------|-----------|
@@ -54,11 +54,11 @@ sections:
       | CSA CCM v4.1 | Cloud controls matrix | CSA |
       | COBIT 2019 | IT governance & management | ISACA |
 
-      Framework text is licensed, so there's no shared public endpoint — the repo ships code + metadata only, and every operator builds their own corpus and runs their own private MCP instance.
+      Framework text is licensed. The repo ships code and metadata; each operator builds and runs a private corpus, so there is no shared public endpoint.
   - cmd: "go list danny.vn/..."
     title: "Go SDKs"
     body: |
-      Small, focused clients for security and cloud platforms — each one `go get`-able straight off `danny.vn/…`:
+      When a platform I use lacks a focused Go client, I tend to write one. These packages are available through `danny.vn` vanity imports:
 
       | Package | Platform |
       |---------|----------|
@@ -73,15 +73,19 @@ sections:
   - cmd: "cat research/offthebook.txt"
     title: "Security Research"
     body: |
-      - [`offthebook`](https://github.com/dannyota/offthebook) — memory-only Windows PE execution, loader-state reconstruction, and SMB-over-QUIC SEC_IMAGE loading — position-independent shellcode in pure C (MSVC + Clang)
+      I also work closer to the operating system when the problem calls for it.
+
+      - [`offthebook`](https://github.com/dannyota/offthebook) — a memory-only Windows PE execution project. It reconstructs loader state and explores SMB-over-QUIC `SEC_IMAGE` loading, with position-independent shellcode in pure C (MSVC and Clang).
   - cmd: "ls ~/tools/"
-    title: "Other Tools"
+    title: "Open Source"
     body: |
-      - [`splunk-sdk-python`](https://github.com/dannyota/splunk-sdk-python) — Splunk SDK for Python — complements splunkctl for Python-native workflows
-      - [`onnxruntime/go`](https://github.com/microsoft/onnxruntime/pull/29615) — Go bindings for ONNX Runtime C API via CGO — session management, I/O binding, execution providers (open PR on microsoft/onnxruntime)
-      - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — drive a FlowCV résumé from the command line or Python — content, design, templates, avatar, publish & PDF export
+      I publish tools I use and contribute upstream when the work belongs in a shared project.
+
+      - [`onnxruntime/go`](https://github.com/microsoft/onnxruntime/pull/29615) — official Go bindings for the ONNX Runtime C API via CGO, merged into `microsoft/onnxruntime`; covers sessions, tensor I/O, I/O binding, and execution providers
+      - [`splunk-sdk-python`](https://github.com/dannyota/splunk-sdk-python) — Splunk SDK for Python; complements `splunkctl` for Python projects
+      - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — controls a FlowCV resume from the command line or Python, including content, design, templates, avatar, publishing, and PDF export
   - cmd: "git remote -v"
     title: "GitHub"
     body: |
-      Everything's on [github.com/dannyota](https://github.com/dannyota).
+      Source, documentation, and project history are on [github.com/dannyota](https://github.com/dannyota).
 ---
