@@ -1,40 +1,31 @@
 # Danny On The Air (danny.vn)
 
-> Personal site of Danny, a security engineer in Vietnam building open-source
-> security-as-code CLIs, evidence-only regulatory & compliance AI (RAG + MCP),
-> and Go SDKs.
+> Personal site of Danny, a security engineer in Vietnam who builds open-source security automation, evidence-based regulatory and compliance tools, Go SDKs, and systems research.
 
 ## Security as Code
 
-All three ship a built-in MCP server; every mutation is dry-run by default.
+These tools pull live security platform state into files for review, diff, and approved changes. All three include a built-in Model Context Protocol (MCP) server, and mutations are dry-run by default.
 
-- [splunkctl](https://github.com/dannyota/splunkctl): operate Splunk Enterprise SIEM + Splunk SOAR as code
-- [s1ctl](https://github.com/dannyota/s1ctl): operate SentinelOne Singularity Platform as code
-- [secopsctl](https://github.com/dannyota/secops): operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code
+- [splunkctl](https://github.com/dannyota/splunkctl): Splunk Enterprise SIEM and Splunk SOAR as code
+- [s1ctl](https://github.com/dannyota/s1ctl): SentinelOne Singularity as code
+- [secopsctl](https://github.com/dannyota/secops): Google SecOps, including Chronicle SIEM and Siemplify SOAR, as code
 
 ## Regulatory AI
 
-One codebase (github.com/dannyota/banhmi), one corpus per country — six ASEAN
-jurisdictions. Free remote MCP endpoints (Streamable HTTP), no signup.
-Tools: search, document, corpus_status, quality_gaps, guide.
+One codebase, one corpus per country, across six ASEAN jurisdictions. Each public endpoint finds exact provisions in official sources and links results to the source text. The endpoints use Streamable HTTP, are free, and require no signup. Tools: search, document, corpus_status, quality_gaps, guide.
 
-- [banhmi](https://banhmi.danny.vn): Vietnamese banking & fintech regulation (MCP: banhmi.danny.vn/mcp, ask in Vietnamese)
-- [laksa](https://laksa.danny.vn): Malaysian banking & fintech regulation (MCP: laksa.danny.vn/mcp, ask in English)
-- [rendang](https://rendang.danny.vn): Indonesian banking & fintech regulation (MCP: rendang.danny.vn/mcp, ask in Indonesian)
-- [kaya](https://kaya.danny.vn): Singaporean banking & fintech regulation (MCP: kaya.danny.vn/mcp, ask in English)
-- [tomyum](https://tomyum.danny.vn): Thai banking & fintech regulation (MCP: tomyum.danny.vn/mcp, ask in Thai)
-- [amok](https://amok.danny.vn): Cambodian banking & fintech regulation (MCP: amok.danny.vn/mcp, ask in English)
+- [banhmi](https://banhmi.danny.vn): Vietnamese banking and fintech regulation (MCP: banhmi.danny.vn/mcp; ask in Vietnamese)
+- [laksa](https://laksa.danny.vn): Malaysian banking and fintech regulation (MCP: laksa.danny.vn/mcp; ask in English)
+- [rendang](https://rendang.danny.vn): Indonesian banking and fintech regulation (MCP: rendang.danny.vn/mcp; ask in Indonesian)
+- [kaya](https://kaya.danny.vn): Singaporean banking and fintech regulation (MCP: kaya.danny.vn/mcp; ask in English)
+- [tomyum](https://tomyum.danny.vn): Thai banking and fintech regulation (MCP: tomyum.danny.vn/mcp; ask in Thai)
+- [amok](https://amok.danny.vn): Cambodian banking and fintech regulation (MCP: amok.danny.vn/mcp; ask in English)
 
 ## Compliance AI
 
-- [compliary](https://github.com/dannyota/compliary): evidence-only corpus + MCP server
-  for the security control frameworks organizations are audited against — ISO/IEC 27001
-  family (27001/27002/27017/27018/27701), ISO 22301, ISO/IEC 42001, NIST CSF 2.0,
-  NIST SP 800-53 r5, SOC 2, PCI DSS v4.0.1, CIS Controls v8.1, SWIFT CSCF, CSA CCM v4.1,
-  COBIT 2019. Framework text is licensed, so operators self-deploy their own instance;
-  there is no shared public endpoint.
+- [compliary](https://github.com/dannyota/compliary): exact control citations, version lineage, and sourced cross-framework mappings for ISO/IEC 27001, ISO/IEC 27002, ISO/IEC 27017, ISO/IEC 27018, ISO/IEC 27701, ISO 22301, ISO/IEC 42001, NIST CSF 2.0, NIST SP 800-53 r5, SOC 2, PCI DSS v4.0.1, CIS Controls v8.1, SWIFT CSCF, CSA CCM v4.1, and COBIT 2019. Framework text is licensed, so each operator builds and runs a private corpus.
 
-## Go SDKs (vanity imports on danny.vn)
+## Go SDKs
 
 - danny.vn/s1: SentinelOne Singularity
 - danny.vn/secops: Google SecOps
@@ -45,9 +36,10 @@ Tools: search, document, corpus_status, quality_gaps, guide.
 - danny.vn/gnode: VNG Cloud GreenNode services (unofficial community SDK)
 - danny.vn/kaggle: Kaggle API
 
-## Other
+## Open Source
 
-- [offthebook](https://github.com/dannyota/offthebook): memory-only Windows PE execution research
-- [onnxruntime/go](https://github.com/microsoft/onnxruntime/pull/29615): Go bindings for ONNX Runtime C API via CGO (open PR on microsoft/onnxruntime)
-- [flowcvcli](https://github.com/dannyota/flowcvcli): FlowCV résumé CLI
+- [onnxruntime/go](https://github.com/microsoft/onnxruntime/pull/29615): official Go bindings for the ONNX Runtime C API via CGO, merged into microsoft/onnxruntime
+- [offthebook](https://github.com/dannyota/offthebook): memory-only Windows PE execution, loader-state reconstruction, and SMB-over-QUIC SEC_IMAGE loading in pure C
+- [splunk-sdk-python](https://github.com/dannyota/splunk-sdk-python): Splunk SDK for Python
+- [flowcvcli](https://github.com/dannyota/flowcvcli): FlowCV resume control from the command line or Python
 - All repositories: https://github.com/dannyota
