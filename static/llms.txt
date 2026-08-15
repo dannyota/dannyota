@@ -1,14 +1,15 @@
 # Danny On The Air (danny.vn)
 
-> Personal site of Danny, a security engineer in Vietnam who builds open-source security automation, evidence-based regulatory and compliance tools, Go SDKs, and systems research.
+> Personal site of Danny, a security engineer in Vietnam who builds open-source security automation in Rust and Go, evidence-based regulatory and compliance tools, Go SDKs, and systems research.
 
 ## Security as Code
 
-These tools pull live security platform state into files for review, diff, and approved changes. All three include a built-in Model Context Protocol (MCP) server, and mutations are dry-run by default.
+These tools pull live security platform state into files for review, diff, and approved changes. Remote mutations are previews until `--yes`. The three Go CLIs include a built-in Model Context Protocol (MCP) server.
 
 - [splunkctl](https://github.com/dannyota/splunkctl): Splunk Enterprise SIEM and Splunk SOAR as code
 - [s1ctl](https://github.com/dannyota/s1ctl): SentinelOne Singularity as code
 - [secopsctl](https://github.com/dannyota/secops): Google SecOps, including Chronicle SIEM and Siemplify SOAR, as code
+- [elasticctl](https://github.com/dannyota/elasticctl): Elastic Security detection rules as code across self-managed, Elastic Cloud Hosted, and Serverless deployments. It is written in Rust. Its MCP server is planned once the CLI surface is stable.
 
 ## Regulatory AI
 

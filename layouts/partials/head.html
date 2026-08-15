@@ -9,13 +9,13 @@
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}">
 {{ $theme := resources.Get "js/theme.js" | minify | fingerprint "sha384" }}
 <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:site_name" content="{{ .Site.Params.siteName }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ .Site.Params.description }}">
 <meta property="og:url" content="{{ .Permalink }}">
@@ -24,98 +24,30 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Green phosphor terminal — Danny On The Air: Security Engineer · Vietnam">
-<meta property="og:locale" content="{{ replace .Site.Language.LanguageCode "-" "_" }}">
+<meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ .Site.Params.description }}">
 <meta name="twitter:image" content="{{ "og.png" | absURL }}">
 <meta name="twitter:image:alt" content="Green phosphor terminal — Danny On The Air: Security Engineer · Vietnam">
 {{- if .IsHome }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "inLanguage": "en-US",
-  "mainEntity": {
-    "@type": "Person",
-    "name": "Danny",
-    "alternateName": "Danny On The Air",
-    "url": "https://danny.vn",
-    "jobTitle": "Security Engineer",
-    "homeLocation": { "@type": "Country", "name": "Vietnam" },
-    "description": {{ .Site.Params.description | jsonify }},
-    "image": "https://danny.vn/og.png",
-    "knowsAbout": [
-      {
-        "@type": "Thing",
-        "name": "Cybersecurity",
-        "sameAs": "https://en.wikipedia.org/wiki/Computer_security"
-      },
-      {
-        "@type": "Thing",
-        "name": "Go (programming language)",
-        "sameAs": "https://en.wikipedia.org/wiki/Go_(programming_language)"
-      },
-      {
-        "@type": "Thing",
-        "name": "Security information and event management",
-        "sameAs": "https://en.wikipedia.org/wiki/Security_information_and_event_management"
-      },
-      {
-        "@type": "Thing",
-        "name": "Endpoint detection and response",
-        "sameAs": "https://en.wikipedia.org/wiki/Endpoint_detection_and_response"
-      },
-      {
-        "@type": "Thing",
-        "name": "Infrastructure as code",
-        "sameAs": "https://en.wikipedia.org/wiki/Infrastructure_as_code"
-      },
-      {
-        "@type": "Thing",
-        "name": "Python (programming language)",
-        "sameAs": "https://en.wikipedia.org/wiki/Python_(programming_language)"
-      },
-      {
-        "@type": "Thing",
-        "name": "C (programming language)",
-        "sameAs": "https://en.wikipedia.org/wiki/C_(programming_language)"
-      },
-      {
-        "@type": "Thing",
-        "name": "Regulatory technology",
-        "sameAs": "https://en.wikipedia.org/wiki/Regulatory_technology"
-      },
-      {
-        "@type": "Thing",
-        "name": "Governance, risk management, and compliance",
-        "sameAs": "https://en.wikipedia.org/wiki/Governance,_risk_management,_and_compliance"
-      }
-    ],
-    "sameAs": [
-      "https://github.com/dannyota",
-      "https://banhmi.danny.vn",
-      "https://laksa.danny.vn",
-      "https://rendang.danny.vn",
-      "https://kaya.danny.vn",
-      "https://tomyum.danny.vn",
-      "https://amok.danny.vn"
-    ]
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Open-source projects by Danny",
-  "itemListElement": [
-    { "@type": "SoftwareApplication", "position": 1, "name": "splunkctl", "url": "https://github.com/dannyota/splunkctl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Operate Splunk Enterprise SIEM + Splunk SOAR as code, with a built-in MCP server" },
-    { "@type": "SoftwareApplication", "position": 2, "name": "s1ctl", "url": "https://github.com/dannyota/s1ctl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Operate SentinelOne Singularity Platform as code, with a built-in MCP server" },
-    { "@type": "SoftwareApplication", "position": 3, "name": "secopsctl", "url": "https://github.com/dannyota/secops", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Operate Google SecOps (Chronicle SIEM + Siemplify SOAR) as code, with a built-in MCP server" },
-    { "@type": "SoftwareApplication", "position": 4, "name": "banhmi", "url": "https://banhmi.danny.vn", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Evidence-only RAG + MCP servers for Southeast-Asian banking & fintech regulation — six jurisdictions: Vietnam, Malaysia, Indonesia, Singapore, Thailand, Cambodia" },
-    { "@type": "SoftwareApplication", "position": 5, "name": "compliary", "url": "https://github.com/dannyota/compliary", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "description": "Evidence-only corpus + MCP server for security & compliance control frameworks: ISO/IEC 27001 family, NIST CSF & SP 800-53, PCI DSS, SOC 2, CIS Controls, SWIFT CSCF, CSA CCM, COBIT" }
-  ]
-}
-</script>
+{{- $homeURL := .Site.Home.Permalink -}}
+{{- $websiteID := printf "%s#website" $homeURL -}}
+{{- $personID := printf "%s#danny" $homeURL -}}
+{{- $projects := slice
+  (dict "@type" "ListItem" "position" 1 "item" (dict "@type" "SoftwareApplication" "name" "elasticctl" "url" "https://github.com/dannyota/elasticctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A Rust CLI for operating Elastic Security detection rules as code across self-managed, Elastic Cloud Hosted, and Elastic Cloud Serverless deployments. Remote mutations are previews until --yes."))
+  (dict "@type" "ListItem" "position" 2 "item" (dict "@type" "SoftwareApplication" "name" "splunkctl" "url" "https://github.com/dannyota/splunkctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A CLI and built-in MCP server for operating Splunk Enterprise SIEM and Splunk SOAR as code."))
+  (dict "@type" "ListItem" "position" 3 "item" (dict "@type" "SoftwareApplication" "name" "s1ctl" "url" "https://github.com/dannyota/s1ctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A CLI and built-in MCP server for operating SentinelOne Singularity as code."))
+  (dict "@type" "ListItem" "position" 4 "item" (dict "@type" "SoftwareApplication" "name" "secopsctl" "url" "https://github.com/dannyota/secops" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A CLI and built-in MCP server for operating Google SecOps, including Chronicle SIEM and Siemplify SOAR, as code."))
+  (dict "@type" "ListItem" "position" 5 "item" (dict "@type" "SoftwareApplication" "name" "compliary" "url" "https://github.com/dannyota/compliary" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A private corpus and MCP server for exact security and compliance control citations, version lineage, and sourced cross-framework mappings."))
+  (dict "@type" "ListItem" "position" 6 "item" (dict "@type" "SoftwareApplication" "name" "offthebook" "url" "https://github.com/dannyota/offthebook" "applicationCategory" "DeveloperApplication" "operatingSystem" "Windows" "description" "A pure C project for memory-only Windows PE execution, loader-state reconstruction, and SMB-over-QUIC SEC_IMAGE loading."))
+-}}
+{{- $graph := slice
+  (dict "@type" "WebSite" "@id" $websiteID "url" $homeURL "name" .Site.Params.siteName "alternateName" (slice "danny.vn") "description" .Site.Params.description "inLanguage" .Site.Language.Locale)
+  (dict "@type" "ProfilePage" "@id" $homeURL "url" $homeURL "name" .Site.Title "description" .Site.Params.description "inLanguage" .Site.Language.Locale "isPartOf" (dict "@id" $websiteID) "mainEntity" (dict "@id" $personID))
+  (dict "@type" "Person" "@id" $personID "name" .Site.Params.author "alternateName" .Site.Params.siteName "url" $homeURL "jobTitle" "Security Engineer" "homeLocation" (dict "@type" "Country" "name" "Vietnam") "description" .Site.Params.description "sameAs" (slice .Site.Params.github) "knowsAbout" (slice "Cybersecurity" "Security as code" "Rust programming language" "Go programming language" "C programming language" "Python programming language" "Security operations" "Regulatory technology" "Governance, risk management, and compliance"))
+  (dict "@type" "ItemList" "@id" (printf "%s#projects" $homeURL) "name" "Open-source projects by Danny" "numberOfItems" 6 "itemListOrder" "https://schema.org/ItemListOrderAscending" "itemListElement" $projects)
+-}}
+{{- $structuredData := dict "@context" "https://schema.org" "@graph" $graph -}}
+<script type="application/ld+json">{{ $structuredData | jsonify | safeJS }}</script>
 {{- end }}

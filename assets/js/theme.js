@@ -32,8 +32,14 @@
     var btn = document.getElementById("theme-toggle");
     if (!btn) return;
     var cur = effective();
-    btn.textContent = "theme=" + cur;
-    btn.setAttribute("aria-label", "switch to " + (cur === "dark" ? "light" : "dark") + " theme");
+    var next = cur === "dark" ? "light" : "dark";
+    var sun = btn.querySelector(".icon-sun");
+    var moon = btn.querySelector(".icon-moon");
+    if (sun) sun.hidden = cur !== "dark";
+    if (moon) moon.hidden = cur === "dark";
+    btn.setAttribute("aria-label", "switch to " + next + " theme");
+    btn.setAttribute("title", "switch to " + next + " theme");
+    btn.setAttribute("aria-pressed", cur === "dark" ? "true" : "false");
   }
 
   function apply() { paintMeta(); label(); }

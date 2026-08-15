@@ -1,13 +1,14 @@
 baseURL = "https://danny.vn/"
-title = "Danny On The Air"
+title = "Danny On The Air — Security Engineer in Vietnam"
 enableRobotsTXT = true
-languageCode = "en-US"
+locale = "en-US"
 disableKinds = ["taxonomy", "term"]
 
 [params]
   author = "Danny"
-  description = "Danny On The Air — security engineer in Vietnam building open-source security-as-code CLIs, evidence-only regulatory & compliance AI MCP servers, and Go SDKs."
-  keywords = ["Danny On The Air", "danny.vn", "security engineer", "Vietnam", "security as code", "Go CLI", "secops", "s1ctl", "splunkctl", "banhmi", "laksa", "rendang", "kaya", "tomyum", "amok", "compliary", "MCP server", "regulatory AI", "compliance AI", "open source security tools"]
+  siteName = "Danny On The Air"
+  description = "Danny builds open-source security tools in Rust and Go for security operations, regulatory research, compliance, Go SDKs, and systems work."
+  keywords = ["Danny On The Air", "danny.vn", "security engineer", "Vietnam", "security as code", "Rust CLI", "Go CLI", "elasticctl", "Elastic Security", "secops", "s1ctl", "splunkctl", "banhmi", "laksa", "rendang", "kaya", "tomyum", "amok", "compliary", "MCP server", "regulatory AI", "compliance AI", "open source security tools"]
   github = "https://github.com/dannyota"
 
 [outputs]

@@ -84,8 +84,8 @@ html {
 
 body {
   margin: 0 auto;
-  padding: 2.5rem 1.25rem 1.5rem;
-  max-width: 84ch;
+  padding: 1.75rem 1.25rem 1.5rem;
+  max-width: 104ch;
   font-family: var(--mono);
   font-size: 15px;
   line-height: 1.65;
@@ -143,11 +143,6 @@ body {
 }
 
 /* prompt lines */
-.lastlogin {
-  color: var(--green-dim);
-  margin: 0 0 2rem;
-}
-
 .promptline {
   display: block;
   font-size: 1em;
@@ -217,10 +212,11 @@ h1 {
   50% { opacity: 0; }
 }
 
-/* staggered load reveal */
+/* load reveal */
 .entry {
+  scroll-margin-top: 1.25rem;
   animation: rise 0.45s ease both;
-  animation-delay: calc(var(--i, 0) * 90ms + 150ms);
+  animation-delay: 150ms;
 }
 
 @keyframes rise {
@@ -238,6 +234,119 @@ h1 {
   margin: 0.75rem 0;
 }
 
+/* section directory */
+.directory {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.5rem 1.25rem;
+  margin: 2rem 0 0.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  color: var(--green-dim);
+}
+
+.directory-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.directory-actions {
+  display: flex;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.icon-control,
+.sb-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  color: var(--cyan);
+  background: none;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.icon-control:hover,
+.sb-theme:hover {
+  color: var(--inv);
+  background: var(--cyan);
+}
+
+.icon {
+  display: block;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  background: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.icon[hidden] {
+  display: none;
+}
+
+.icon-github {
+  mask-image: url("/icons/github.svg");
+  -webkit-mask-image: url("/icons/github.svg");
+}
+
+.icon-sun {
+  mask-image: url("/icons/sun.svg");
+  -webkit-mask-image: url("/icons/sun.svg");
+}
+
+.icon-moon {
+  mask-image: url("/icons/moon.svg");
+  -webkit-mask-image: url("/icons/moon.svg");
+}
+
+/* long catalogs */
+.catalog {
+  margin: 0.9rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--line);
+}
+
+.catalog summary {
+  width: fit-content;
+  color: var(--cyan);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+}
+
+.catalog summary:hover {
+  color: var(--inv);
+  background: var(--cyan);
+  text-decoration: none;
+}
+
+.catalog[open] summary {
+  color: var(--green-dim);
+}
+
+.catalog .output {
+  margin-top: 0.75rem;
+}
+
 /* tree-style lists */
 .output ul {
   list-style: none;
@@ -246,18 +355,33 @@ h1 {
 }
 
 .output li {
-  padding-left: 2.6ch;
-  text-indent: -2.6ch;
-  margin: 0.35rem 0;
+  position: relative;
+  margin: 0;
+  padding: 0 0 0.45rem 2.6ch;
+  border-left: 1px solid var(--green-dim);
 }
 
 .output li::before {
-  content: "├── ";
-  color: var(--green-dim);
+  content: "";
+  position: absolute;
+  top: 0.82em;
+  left: -1px;
+  width: 1.8ch;
+  border-top: 1px solid var(--green-dim);
 }
 
-.output li:last-child::before {
-  content: "└── ";
+.output li:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.output li:last-child::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  height: calc(0.82em + 1px);
+  border-left: 1px solid var(--green-dim);
 }
 
 /* inline code */
@@ -329,28 +453,19 @@ tbody tr:hover {
   color: var(--green-dim);
 }
 
-/* theme toggle: styled as a statusbar link */
-.sb-theme {
-  font: inherit;
-  font-family: var(--mono);
-  color: var(--cyan);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 3px;
-}
-
-.sb-theme:hover {
-  color: var(--inv);
-  background: var(--cyan);
-  text-decoration: none;
-}
-
 .no-js .sb-theme {
   display: none;
+}
+
+@media (max-width: 699px) {
+  body {
+    padding-top: 1.25rem;
+  }
+
+  h2 {
+    margin-top: 2.5rem;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

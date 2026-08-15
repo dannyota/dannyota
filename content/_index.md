@@ -4,9 +4,10 @@ hero:
   cmd: "whoami"
   greeting: "Hey, I'm Danny 👋"
   intro: |
-    I'm a security engineer in Vietnam. I build tools for security operations, regulatory research, and systems work—mostly in Go, C, and Python. When something I build could help others, I open-source it.
+    I'm a security engineer in Vietnam. I build tools for security operations, regulatory research, and systems work—mostly in Rust, Go, C, and Python. When something I build could help others, I open-source it.
 sections:
-  - cmd: "ls ~/security-as-code/"
+  - id: "security-as-code"
+    cmd: "ls ~/security-as-code/"
     title: "Security as Code"
     body: |
       Security operations should be reviewable like code. I build CLIs that pull live platform state into files, show meaningful diffs, and push approved changes back:
@@ -14,9 +15,11 @@ sections:
       - [`splunkctl`](https://github.com/dannyota/splunkctl) — Splunk Enterprise SIEM and Splunk SOAR — rules, parsers, macros, lookups, dashboards, SOAR playbooks, incident review, and SIEM-to-SOAR ingest
       - [`s1ctl`](https://github.com/dannyota/s1ctl) — SentinelOne Singularity — configuration across 11 surfaces, drift detection for CI, agents, threats, remote operations, xSPM, marketplace, and Data Lake queries
       - [`secopsctl`](https://github.com/dannyota/secops) — Google SecOps (Chronicle SIEM and Siemplify SOAR) — detection rules, parsers, dashboards, and SOAR playbooks
+      - [`elasticctl`](https://github.com/dannyota/elasticctl) — Elastic Security detection rules as code across self-managed, Elastic Cloud Hosted, and Serverless deployments; written in Rust
 
-      All three include a built-in Model Context Protocol (MCP) server, machine-readable command trees, and embedded agent guides. Changes are dry-run until `--yes`.
-  - cmd: "cat regulatory-ai.md"
+      All four preview remote mutations and require `--yes` to apply them. The three Go CLIs include built-in Model Context Protocol (MCP) servers, machine-readable command trees, and embedded agent guides. `elasticctl` plans MCP after its CLI surface is stable.
+  - id: "regulatory-ai"
+    cmd: "cat regulatory-ai.md"
     title: "Regulatory AI"
     body: |
       Regulatory answers should point back to the law. These retrieval-augmented generation (RAG) and MCP servers find exact provisions in official sources and link each result to the source text:
@@ -31,10 +34,13 @@ sections:
       | [`amok`](https://amok.danny.vn) | 🇰🇭 Cambodia | National Bank of Cambodia |
 
       One codebase, one corpus per country, across six ASEAN jurisdictions. The public endpoints are free and require no signup.
-  - cmd: "cat compliance-ai.md"
+  - id: "compliance-ai"
+    cmd: "cat compliance-ai.md"
     title: "Compliance AI"
+    intro: |
+      [`compliary`](https://github.com/dannyota/compliary) applies the same approach to security and compliance frameworks. It returns exact control citations (`A.5.1`, `AC-2(3)`, `Req 8.3.6`), tracks version lineage so superseded text is not presented as current, and records the provenance of cross-framework mappings.
+    summary: "show 15 frameworks and publishers"
     body: |
-      [`compliary`](https://github.com/dannyota/compliary) applies the same approach to security and compliance frameworks. It returns exact control citations (`A.5.1`, `AC-2(3)`, `Req 8.3.6`), tracks version lineage so superseded text is not presented as current, and records the provenance of cross-framework mappings:
 
       | Framework | Covers | Publisher |
       |-----------|--------|-----------|
@@ -55,10 +61,24 @@ sections:
       | COBIT 2019 | IT governance & management | ISACA |
 
       Framework text is licensed. The repo ships code and metadata; each operator builds and runs a private corpus, so there is no shared public endpoint.
-  - cmd: "go list danny.vn/..."
-    title: "Go SDKs"
+  - id: "security-research"
+    cmd: "cat research/offthebook.txt"
+    title: "Security Research"
     body: |
-      When a platform I use lacks a focused Go client, I tend to write one. These packages are available through `danny.vn` vanity imports:
+      I also work closer to the operating system when the problem calls for it.
+
+      - [`offthebook`](https://github.com/dannyota/offthebook) — a memory-only Windows PE execution project. It reconstructs loader state and explores SMB-over-QUIC `SEC_IMAGE` loading, with position-independent shellcode in pure C (MSVC and Clang).
+  - id: "open-source"
+    cmd: "ls ~/tools/"
+    title: "Open Source"
+    intro: |
+      I publish tools I use and contribute upstream when the work belongs in a shared project.
+
+      - [`onnxruntime/go`](https://github.com/microsoft/onnxruntime/pull/29615) — official Go bindings for the ONNX Runtime C API via CGO, merged into `microsoft/onnxruntime`; covers sessions, tensor I/O, I/O binding, and execution providers
+      - [`splunk-sdk-python`](https://github.com/dannyota/splunk-sdk-python) — Splunk SDK for Python; complements `splunkctl` for Python projects
+      - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — controls a FlowCV resume from the command line or Python, including content, design, templates, avatar, publishing, and PDF export
+    summary: "show 8 Go SDKs and platforms"
+    body: |
 
       | Package | Platform |
       |---------|----------|
@@ -70,22 +90,4 @@ sections:
       | [`vngcloud`](/vngcloud) | VNG Cloud IAM |
       | [`gnode`](/gnode) | VNG Cloud GreenNode services — unofficial community SDK |
       | [`kaggle`](/kaggle) | Kaggle API — kernels, datasets, token introspection |
-  - cmd: "cat research/offthebook.txt"
-    title: "Security Research"
-    body: |
-      I also work closer to the operating system when the problem calls for it.
-
-      - [`offthebook`](https://github.com/dannyota/offthebook) — a memory-only Windows PE execution project. It reconstructs loader state and explores SMB-over-QUIC `SEC_IMAGE` loading, with position-independent shellcode in pure C (MSVC and Clang).
-  - cmd: "ls ~/tools/"
-    title: "Open Source"
-    body: |
-      I publish tools I use and contribute upstream when the work belongs in a shared project.
-
-      - [`onnxruntime/go`](https://github.com/microsoft/onnxruntime/pull/29615) — official Go bindings for the ONNX Runtime C API via CGO, merged into `microsoft/onnxruntime`; covers sessions, tensor I/O, I/O binding, and execution providers
-      - [`splunk-sdk-python`](https://github.com/dannyota/splunk-sdk-python) — Splunk SDK for Python; complements `splunkctl` for Python projects
-      - [`flowcvcli`](https://github.com/dannyota/flowcvcli) — controls a FlowCV resume from the command line or Python, including content, design, templates, avatar, publishing, and PDF export
-  - cmd: "git remote -v"
-    title: "GitHub"
-    body: |
-      Source, documentation, and project history are on [github.com/dannyota](https://github.com/dannyota).
 ---

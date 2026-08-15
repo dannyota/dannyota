@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.LanguageCode }}" class="no-js">
+<html lang="{{ .Site.Language.Locale }}" class="no-js">
 <head>
 {{ partial "head.html" . }}
 </head>
@@ -13,9 +13,6 @@
   <span class="sb-seg">[danny.vn]</span>
   <span class="sb-seg">
     <a href="{{ .Site.Params.github }}" rel="me">github</a>
-  </span>
-  <span class="sb-seg">
-    <button type="button" class="sb-theme" id="theme-toggle">theme</button>
   </span>
 </footer>
 {{ $js := resources.Get "js/term.js" | minify | fingerprint "sha384" }}
