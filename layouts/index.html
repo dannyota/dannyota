@@ -1,9 +1,17 @@
 {{ define "main" }}
 <section class="hero">
   <p class="promptline" aria-hidden="true"><span class="prompt">danny@danny.vn</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd" id="hero-cmd">{{ .Params.hero.cmd }}</span><span class="cursor"></span></p>
-  <div class="output">
-    <h1>{{ .Params.hero.greeting }}</h1>
-    {{ .Params.hero.intro | markdownify }}
+  <div class="output identity">
+    {{ $portrait := resources.Get "images/danny.jpg" }}
+    {{ $avatar := $portrait.Resize "192x webp q85" }}
+    {{ $avatarLarge := $portrait.Resize "384x webp q85" }}
+    <div class="avatar-frame">
+      <img class="avatar" src="{{ $avatar.RelPermalink }}" srcset="{{ $avatarLarge.RelPermalink }} 2x" alt="Illustrated portrait of Danny" width="96" height="96" fetchpriority="high" decoding="async">
+    </div>
+    <div class="identity-copy">
+      <h1>{{ .Params.hero.greeting }}</h1>
+      {{ .Params.hero.intro | markdownify }}
+    </div>
   </div>
 </section>
 
@@ -14,6 +22,9 @@
     {{- end }}
   </ul>
   <span class="directory-actions">
+    <button type="button" class="icon-control effects-toggle" id="effects-toggle" aria-label="turn effects off" title="turn effects off" aria-pressed="true">
+      <span class="icon icon-effects" aria-hidden="true"></span>
+    </button>
     <a class="icon-control" href="{{ .Site.Params.github }}" rel="me" aria-label="GitHub profile" title="GitHub profile">
       <span class="icon icon-github" aria-hidden="true"></span>
     </a>

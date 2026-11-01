@@ -6,11 +6,16 @@
 <body>
 <a class="skip" href="#main">skip to content</a>
 <div class="crt" aria-hidden="true"></div>
+<header class="terminal-chrome" aria-hidden="true">
+  <span class="window-dots"><i></i><i></i><i></i></span>
+  <span class="terminal-title">danny / readme.md</span>
+  <span class="terminal-session">UTF-8</span>
+</header>
 <main id="main">
 {{ block "main" . }}{{ end }}
 </main>
 <footer class="statusbar">
-  <span class="sb-seg">[danny.vn]</span>
+  <span class="sb-seg"><span class="status-dot" aria-hidden="true"></span> end of file. thanks for stopping by.</span>
   <span class="sb-seg">
     <a href="{{ .Site.Params.github }}" rel="me">github</a>
   </span>

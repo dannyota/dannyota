@@ -4,7 +4,7 @@ hero:
   cmd: "whoami"
   greeting: "Hey, I'm Danny 👋"
   intro: |
-    I'm a security engineer in Vietnam. I build tools for security operations, regulatory research, and systems work—mostly in Rust, Go, C, and Python. When something I build could help others, I open-source it.
+    I like building tools and figuring out how things work. Mostly Rust, Go, C, and Python. Here are a few things I've made and shared.
 sections:
   - id: "security-as-code"
     cmd: "ls ~/security-as-code/"

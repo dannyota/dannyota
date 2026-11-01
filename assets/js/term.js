@@ -1,31 +1,22 @@
 (function () {
   "use strict";
-  document.documentElement.classList.replace("no-js", "js");
-
+  var root = document.documentElement;
   var el = document.getElementById("hero-cmd");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  if (el && !reduce) {
+  if (el && !reduce.matches && root.dataset.effects !== "off") {
     var text = el.textContent;
-    var line = el.closest(".promptline");
-    el.textContent = "";
-    line.classList.add("typing");
     var i = 0;
+    el.textContent = "";
     var tick = function () {
+      if (reduce.matches || root.dataset.effects === "off") {
+        el.textContent = text;
+        return;
+      }
       i += 1;
       el.textContent = text.slice(0, i);
-      if (i < text.length) {
-        setTimeout(tick, 55 + Math.random() * 65);
-      } else {
-        line.classList.remove("typing");
-      }
+      if (i < text.length) setTimeout(tick, 65);
     };
-    setTimeout(tick, 350);
+    setTimeout(tick, 120);
   }
-
-  console.log(
-    "%c danny.vn %c go get danny.vn/{s1,secops,fortigate,fortimgr,nessus,vngcloud,kaggle}",
-    "background:#46e07d;color:#04140a;font-family:monospace",
-    "color:#f5b453;font-family:monospace"
-  );
 })();

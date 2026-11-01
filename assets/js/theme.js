@@ -3,65 +3,66 @@
   var root = document.documentElement;
   root.classList.replace("no-js", "js");
 
-  var COLORS = { dark: "#060907", light: "#f2efe4" };
+  var COLORS = { dark: "#101713", light: "#f7f8f2" };
   var stored = null;
-  try { stored = localStorage.getItem("theme"); } catch (e) {}
-  if (stored === "dark" || stored === "light") {
-    root.dataset.theme = stored;
-  }
+  var effects = true;
+  try {
+    stored = localStorage.getItem("theme");
+    effects = localStorage.getItem("effects") !== "off";
+  } catch (e) {}
+  if (stored !== "dark" && stored !== "light") stored = null;
 
   var media = window.matchMedia("(prefers-color-scheme: light)");
-
+  var motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   function system() { return media.matches ? "light" : "dark"; }
-  function effective() { return root.dataset.theme || system(); }
 
-  function paintMeta() {
+  function apply() {
+    var current = stored || system();
+    root.dataset.theme = current;
+    root.dataset.effects = effects && !motion.matches ? "on" : "off";
     var metas = document.querySelectorAll('meta[name="theme-color"]');
-    for (var i = 0; i < metas.length; i++) {
-      var m = metas[i];
-      if (root.dataset.theme) {
-        m.setAttribute("content", COLORS[root.dataset.theme]);
-      } else {
-        var mq = m.getAttribute("media") || "";
-        m.setAttribute("content", mq.indexOf("light") >= 0 ? COLORS.light : COLORS.dark);
-      }
+    for (var i = 0; i < metas.length; i++) metas[i].setAttribute("content", COLORS[current]);
+
+    var theme = document.getElementById("theme-toggle");
+    if (theme) {
+      var next = current === "dark" ? "light" : "dark";
+      theme.querySelector(".icon-sun").hidden = current !== "dark";
+      theme.querySelector(".icon-moon").hidden = current === "dark";
+      theme.setAttribute("aria-label", "switch to " + next + " theme");
+      theme.setAttribute("title", "switch to " + next + " theme");
+      theme.setAttribute("aria-pressed", current === "dark" ? "true" : "false");
+    }
+    var toggle = document.getElementById("effects-toggle");
+    if (toggle) {
+      var active = effects && !motion.matches;
+      var label = motion.matches ? "effects disabled by reduced motion preference" : "turn effects " + (active ? "off" : "on");
+      toggle.disabled = motion.matches;
+      toggle.setAttribute("aria-label", label);
+      toggle.setAttribute("title", label);
+      toggle.setAttribute("aria-pressed", active ? "true" : "false");
     }
   }
 
-  function label() {
-    var btn = document.getElementById("theme-toggle");
-    if (!btn) return;
-    var cur = effective();
-    var next = cur === "dark" ? "light" : "dark";
-    var sun = btn.querySelector(".icon-sun");
-    var moon = btn.querySelector(".icon-moon");
-    if (sun) sun.hidden = cur !== "dark";
-    if (moon) moon.hidden = cur === "dark";
-    btn.setAttribute("aria-label", "switch to " + next + " theme");
-    btn.setAttribute("title", "switch to " + next + " theme");
-    btn.setAttribute("aria-pressed", cur === "dark" ? "true" : "false");
-  }
-
-  function apply() { paintMeta(); label(); }
-
-  paintMeta();
-
+  apply();
   document.addEventListener("DOMContentLoaded", function () {
     apply();
-    var btn = document.getElementById("theme-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var next = effective() === "dark" ? "light" : "dark";
-      if (next === system()) {
-        delete root.dataset.theme;
-        try { localStorage.removeItem("theme"); } catch (e) {}
-      } else {
-        root.dataset.theme = next;
-        try { localStorage.setItem("theme", next); } catch (e) {}
-      }
+    var theme = document.getElementById("theme-toggle");
+    if (theme) theme.addEventListener("click", function () {
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      stored = next === system() ? null : next;
+      try {
+        if (stored) localStorage.setItem("theme", stored);
+        else localStorage.removeItem("theme");
+      } catch (e) {}
+      apply();
+    });
+    var toggle = document.getElementById("effects-toggle");
+    if (toggle) toggle.addEventListener("click", function () {
+      effects = !effects;
+      try { localStorage.setItem("effects", effects ? "on" : "off"); } catch (e) {}
       apply();
     });
   });
-
   if (media.addEventListener) media.addEventListener("change", apply);
+  if (motion.addEventListener) motion.addEventListener("change", apply);
 })();
