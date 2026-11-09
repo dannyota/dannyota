@@ -1,5 +1,5 @@
 baseURL = "https://danny.vn/"
-title = "Danny On The Air: Security Engineer in Vietnam"
+title = "Danny: Security Engineer in Vietnam"
 enableRobotsTXT = true
 enableGitInfo = true
 locale = "en-US"
@@ -7,10 +7,11 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   author = "Danny"
-  siteName = "Danny On The Air"
+  siteName = "Danny"
   description = "Security-as-code CLIs with MCP servers for Splunk, SentinelOne, Google SecOps, and Elastic, plus Go SDKs and the aboutme.vn resume builder. By Danny in Vietnam."
-  keywords = ["Danny On The Air", "danny.vn", "security engineer", "Vietnam", "security as code", "Rust CLI", "Go CLI", "Python CLI", "splunkctl", "s1ctl", "secopsctl", "elasticctl", "Elastic Security", "MCP server", "aboutme", "aboutme.vn", "resume builder", "trachuan", "Go SDK", "open source security tools"]
+  keywords = ["Danny", "danny.vn", "security engineer", "Vietnam", "security as code", "Rust CLI", "Go CLI", "Python CLI", "splunkctl", "s1ctl", "secopsctl", "elasticctl", "Elastic Security", "MCP server", "aboutme", "aboutme.vn", "resume builder", "trachuan", "Go SDK", "open source security tools"]
   github = "https://github.com/dannyota"
+  linkedin = "https://www.linkedin.com/in/danhsoftware/"
 
 [outputs]
   home = ["html"]

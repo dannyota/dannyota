@@ -1,5 +1,5 @@
 ---
-title: "Danny On The Air"
+title: "Danny"
 hero:
   cmd: "whoami"
   greeting: "Hey, I'm Danny 👋"

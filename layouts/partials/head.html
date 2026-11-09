@@ -25,13 +25,13 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Illustrated portrait of Danny beside the title Danny On The Air: security engineer in Vietnam who builds tools that run security platforms as code.">
+<meta property="og:image:alt" content="Illustrated portrait of Danny beside the text: Hey, I'm Danny. Security engineer in Vietnam. I build tools that run security platforms as code.">
 <meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ .Site.Params.description }}">
 <meta name="twitter:image" content="{{ "og.png" | absURL }}">
-<meta name="twitter:image:alt" content="Illustrated portrait of Danny beside the title Danny On The Air: security engineer in Vietnam who builds tools that run security platforms as code.">
+<meta name="twitter:image:alt" content="Illustrated portrait of Danny beside the text: Hey, I'm Danny. Security engineer in Vietnam. I build tools that run security platforms as code.">
 {{- if .IsHome }}
 {{- $homeURL := .Site.Home.Permalink -}}
 {{- $websiteID := printf "%s#website" $homeURL -}}
@@ -47,7 +47,7 @@
 {{- $graph := slice
   (dict "@type" "WebSite" "@id" $websiteID "url" $homeURL "name" .Site.Params.siteName "alternateName" (slice "danny.vn") "description" .Site.Params.description "inLanguage" .Site.Language.Locale)
   (dict "@type" "ProfilePage" "@id" $homeURL "url" $homeURL "name" .Site.Title "description" .Site.Params.description "inLanguage" .Site.Language.Locale "isPartOf" (dict "@id" $websiteID) "mainEntity" (dict "@id" $personID))
-  (dict "@type" "Person" "@id" $personID "name" .Site.Params.author "alternateName" .Site.Params.siteName "url" $homeURL "jobTitle" "Security Engineer" "image" $portrait.Permalink "homeLocation" (dict "@type" "Country" "name" "Vietnam") "description" .Site.Params.description "sameAs" (slice .Site.Params.github) "knowsAbout" (slice "Cybersecurity" "Security as code" "Rust programming language" "Go programming language" "C programming language" "Python programming language" "Security operations" "Regulatory technology" "Governance, risk management, and compliance"))
+  (dict "@type" "Person" "@id" $personID "name" .Site.Params.author "url" $homeURL "jobTitle" "Security Engineer" "image" $portrait.Permalink "homeLocation" (dict "@type" "Country" "name" "Vietnam") "description" .Site.Params.description "sameAs" (slice .Site.Params.github .Site.Params.linkedin) "knowsAbout" (slice "Cybersecurity" "Security as code" "Rust programming language" "Go programming language" "C programming language" "Python programming language" "Security operations" "Regulatory technology" "Governance, risk management, and compliance"))
   (dict "@type" "ItemList" "@id" (printf "%s#projects" $homeURL) "name" "Open-source projects by Danny" "numberOfItems" 5 "itemListOrder" "https://schema.org/ItemListOrderAscending" "itemListElement" $projects)
 -}}
 {{- $structuredData := dict "@context" "https://schema.org" "@graph" $graph -}}

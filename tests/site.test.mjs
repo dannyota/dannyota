@@ -34,7 +34,7 @@ const llms = readSiteFile("llms.txt");
 const description = metaContent(home, "name", "description");
 
 test("homepage metadata describes current work", () => {
-  const title = "Danny On The Air: Security Engineer in Vietnam";
+  const title = "Danny: Security Engineer in Vietnam";
 
   assert.match(home, /<html lang=(?:"en-US"|en-US)/);
   assert.match(home, new RegExp(`<title>${title}</title>`));
@@ -92,12 +92,15 @@ test("directory uses accessible icon-only controls", () => {
   assert.doesNotMatch(directory, />\s*github\s*</i);
   assert.doesNotMatch(directory, />\s*theme(?:=(?:light|dark))?\s*</i);
   assert.match(directory, /aria-label="GitHub profile"/);
+  assert.match(directory, /aria-label="LinkedIn profile"/);
+  assert.match(directory, /class="icon icon-linkedin"/);
+  assert.doesNotMatch(directory, /effects-toggle/);
   assert.match(directory, /aria-label="toggle theme"/);
   assert.match(directory, /class="icon icon-github"/);
   assert.match(directory, /class="icon icon-sun"/);
   assert.match(directory, /class="icon icon-moon"/);
 
-  for (const name of ["github", "sun", "moon"]) {
+  for (const name of ["github", "linkedin", "sun", "moon"]) {
     assert.match(readSiteFile(`icons/${name}.svg`), /^<svg /);
   }
 });
@@ -130,10 +133,14 @@ test("JSON-LD is parseable and accurate", () => {
   assert.ok(website, "missing WebSite node");
   assert.ok(person, "missing Person node");
   assert.ok(projects, "missing ItemList node");
-  assert.equal(website.name, "Danny On The Air");
+  assert.equal(website.name, "Danny");
+  assert.doesNotMatch(home, /On The Air/i);
   assert.deepEqual(website.alternateName, ["danny.vn"]);
   assert.equal(person.description, description);
-  assert.deepEqual(person.sameAs, ["https://github.com/dannyota"]);
+  assert.deepEqual(person.sameAs, [
+    "https://github.com/dannyota",
+    "https://www.linkedin.com/in/danhsoftware/",
+  ]);
   assert.ok(person.knowsAbout.includes("Rust programming language"));
   assert.match(person.image, /^https:\/\/danny\.vn\/images\/.+\.webp$/);
 

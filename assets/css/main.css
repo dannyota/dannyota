@@ -225,7 +225,6 @@ p { margin: 0.85rem 0; }
   cursor: pointer;
 }
 .icon-control:hover, .sb-theme:hover { border-color: var(--line); background: var(--row-hover); color: var(--green); }
-.effects-toggle[aria-pressed="true"] { color: var(--green); }
 .icon {
   display: block;
   width: 1rem;
@@ -238,8 +237,8 @@ p { margin: 0.85rem 0; }
 .icon-github { --icon: url("/icons/github.svg"); }
 .icon-sun { --icon: url("/icons/sun.svg"); }
 .icon-moon { --icon: url("/icons/moon.svg"); }
-.icon-effects { --icon: url("/icons/effects.svg"); }
-.no-js .sb-theme, .no-js .effects-toggle { display: none; }
+.icon-linkedin { --icon: url("/icons/linkedin.svg"); }
+.no-js .sb-theme { display: none; }
 
 main { counter-reset: entry; }
 .entry { counter-increment: entry; margin-top: 2.75rem; scroll-margin-top: 6rem; }
@@ -267,10 +266,10 @@ tbody tr:hover { background: var(--row-hover); }
 
 /* Effects are optional and never delay or obscure the actual content. */
 :root[data-effects="off"] *, :root[data-effects="off"] *::before, :root[data-effects="off"] *::after { animation: none !important; transition: none !important; }
-:root[data-effects="off"] .crt, :root[data-effects="off"] .avatar-frame::after { display: none; }
+:root[data-effects="off"] .avatar-frame::after { display: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .crt, .avatar-frame::after { display: none; }
+  .avatar-frame::after { display: none; }
 }
 @media (max-width: 699px) {
   body { padding: 1rem 1.25rem; font-size: 14px; }

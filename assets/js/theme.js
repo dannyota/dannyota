@@ -5,10 +5,9 @@
 
   var COLORS = { dark: "#101713", light: "#f7f8f2" };
   var stored = null;
-  var effects = true;
   try {
     stored = localStorage.getItem("theme");
-    effects = localStorage.getItem("effects") !== "off";
+    localStorage.removeItem("effects");
   } catch (e) {}
   if (stored !== "dark" && stored !== "light") stored = null;
 
@@ -19,7 +18,7 @@
   function apply() {
     var current = stored || system();
     root.dataset.theme = current;
-    root.dataset.effects = effects && !motion.matches ? "on" : "off";
+    root.dataset.effects = motion.matches ? "off" : "on";
     var metas = document.querySelectorAll('meta[name="theme-color"]');
     for (var i = 0; i < metas.length; i++) metas[i].setAttribute("content", COLORS[current]);
 
@@ -31,15 +30,6 @@
       theme.setAttribute("aria-label", "switch to " + next + " theme");
       theme.setAttribute("title", "switch to " + next + " theme");
       theme.setAttribute("aria-pressed", current === "dark" ? "true" : "false");
-    }
-    var toggle = document.getElementById("effects-toggle");
-    if (toggle) {
-      var active = effects && !motion.matches;
-      var label = motion.matches ? "effects disabled by reduced motion preference" : "turn effects " + (active ? "off" : "on");
-      toggle.disabled = motion.matches;
-      toggle.setAttribute("aria-label", label);
-      toggle.setAttribute("title", label);
-      toggle.setAttribute("aria-pressed", active ? "true" : "false");
     }
   }
 
@@ -54,12 +44,6 @@
         if (stored) localStorage.setItem("theme", stored);
         else localStorage.removeItem("theme");
       } catch (e) {}
-      apply();
-    });
-    var toggle = document.getElementById("effects-toggle");
-    if (toggle) toggle.addEventListener("click", function () {
-      effects = !effects;
-      try { localStorage.setItem("effects", effects ? "on" : "off"); } catch (e) {}
       apply();
     });
   });

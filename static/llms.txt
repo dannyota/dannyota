@@ -1,4 +1,4 @@
-# Danny On The Air (danny.vn)
+# Danny (danny.vn)
 
 > Personal site of Danny, a security engineer in Vietnam who builds security-as-code CLIs and MCP servers in Rust, Go, and Python, Go SDKs, and the aboutme.vn resume builder.
 
