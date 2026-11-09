@@ -3,7 +3,7 @@
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta name="go-import" content="{{ .Params.import_prefix }} git {{ .Params.repo }}">
-  <meta name="go-source" content="{{ .Params.import_prefix }} {{ .Params.repo }} {{ .Params.repo }}/tree/main{/dir} {{ .Params.repo }}/blob/main{/dir}/{file}#L{line}">
+  <meta name="go-source" content="{{ .Params.import_prefix }} {{ .Params.repo }} {{ .Params.repo }}/tree/{{ .Params.branch | default "master" }}{/dir} {{ .Params.repo }}/blob/{{ .Params.branch | default "master" }}{/dir}/{file}#L{line}">
   <meta http-equiv="refresh" content="0; url=https://pkg.go.dev/{{ .Params.import_prefix }}">
 </head>
 <body>

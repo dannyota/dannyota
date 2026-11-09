@@ -38,9 +38,10 @@ test("homepage metadata describes current work", () => {
 
   assert.match(home, /<html lang=(?:"en-US"|en-US)/);
   assert.match(home, new RegExp(`<title>${title}</title>`));
-  assert.match(description, /Rust and Go/);
-  assert.match(description, /regulatory research, compliance/);
+  assert.match(description, /Rust, Go, and Python/);
+  assert.match(description, /MCP servers/);
   assert.match(description, /Go SDKs/);
+  assert.match(description, /aboutme\.vn/);
   assert.ok(description.length <= 160, "meta description exceeds 160 characters");
   assert.equal(metaContent(home, "property", "og:title"), title);
   assert.equal(metaContent(home, "property", "og:description"), description);
@@ -53,9 +54,7 @@ test("homepage has section navigation and compact catalogs", () => {
   assert.match(home, /<nav class=(?:"directory"|directory) aria-label="Page sections">/);
   for (const id of [
     "security-as-code",
-    "regulatory-ai",
-    "compliance-ai",
-    "security-research",
+    "building",
     "open-source",
   ]) {
     assert.match(home, new RegExp(`href=(?:"#${id}"|#${id})`));
@@ -77,11 +76,12 @@ test("homepage has section navigation and compact catalogs", () => {
     /<details class=(?:"catalog"|catalog)>/,
   );
   assert.match(visibleProjects, /onnxruntime\/go/);
-  assert.match(sdkCatalog, /show 8 Go SDKs and platforms/);
+  assert.match(sdkCatalog, /show 7 Go SDKs and platforms/);
   assert.match(sdkCatalog, /href=(?:"\/s1"|\/s1)/);
   assert.match(sdkCatalog, /href=(?:"\/kaggle"|\/kaggle)/);
 
-  assert.equal((home.match(/<details class=(?:"catalog"|catalog)>/g) || []).length, 2);
+  assert.equal((home.match(/<details class=(?:"catalog"|catalog)>/g) || []).length, 1);
+  assert.doesNotMatch(home, /\.danny\.vn\/mcp|banhmi\.danny\.vn|laksa\.danny\.vn/);
   assert.equal((home.match(/id=(?:"theme-toggle"|theme-toggle)/g) || []).length, 1);
 });
 
@@ -141,8 +141,7 @@ test("JSON-LD is parseable and accurate", () => {
     "splunkctl",
     "s1ctl",
     "secopsctl",
-    "compliary",
-    "offthebook",
+    "aboutme",
   ]);
 });
 
@@ -155,13 +154,17 @@ test("machine-readable discovery files match indexing policy", () => {
   assert.match(robots, /User-agent: GPTBot\s+Disallow: \//);
   assert.match(llms, /\[elasticctl\]\(https:\/\/github\.com\/dannyota\/elasticctl\)/);
   assert.match(llms, /written in Rust/);
-  assert.match(llms, /MCP server is planned/);
+  assert.match(llms, /read-only inspection tools/);
+  assert.match(llms, /splunkctl\]\(https:\/\/splunkctl\.danny\.vn\): .*Written in Python/);
 });
 
-test("homepage visible content includes Rust and elasticctl", () => {
+test("homepage visible content reflects current projects", () => {
   assert.match(home, /Rust, Go, C, and Python/);
   assert.match(home, /href=(?:"https:\/\/github\.com\/dannyota\/elasticctl"|https:\/\/github\.com\/dannyota\/elasticctl)/);
-  assert.match(home, /MCP after its CLI surface is stable/);
+  assert.match(home, /href=(?:"https:\/\/aboutme\.vn"|https:\/\/aboutme\.vn)/);
+  assert.doesNotMatch(home, /kiro-trust|offthebook|gnode|byway/);
+  assert.match(home, /Python, on PyPI/);
+  assert.doesNotMatch(home, /three Go CLIs/);
 });
 
 const vanityPages = readdirSync(resolve("content"), { withFileTypes: true })
@@ -189,7 +192,7 @@ test("Go vanity pages keep import discovery while staying out of search", () => 
     );
     assert.match(
       page,
-      new RegExp(`<meta name=(?:"go-source"|go-source) content="${importPrefix} ${repository}`),
+      new RegExp(`<meta name=(?:"go-source"|go-source) content="${importPrefix} ${repository} ${repository}/tree/master`),
     );
     assert.match(
       page,
