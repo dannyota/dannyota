@@ -9,7 +9,9 @@
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="icon" href="{{ "favicon.svg" | relURL }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="32x32">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 {{ $theme := resources.Get "js/theme.js" | minify | fingerprint "sha384" }}
 <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ $css := resources.Get "css/main.css" | minify | fingerprint "sha384" }}
@@ -23,28 +25,29 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Green phosphor terminal — Danny On The Air: Security Engineer · Vietnam">
+<meta property="og:image:alt" content="Illustrated portrait of Danny beside the title Danny On The Air: security engineer in Vietnam who builds tools that run security platforms as code.">
 <meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ .Site.Params.description }}">
 <meta name="twitter:image" content="{{ "og.png" | absURL }}">
-<meta name="twitter:image:alt" content="Green phosphor terminal — Danny On The Air: Security Engineer · Vietnam">
+<meta name="twitter:image:alt" content="Illustrated portrait of Danny beside the title Danny On The Air: security engineer in Vietnam who builds tools that run security platforms as code.">
 {{- if .IsHome }}
 {{- $homeURL := .Site.Home.Permalink -}}
 {{- $websiteID := printf "%s#website" $homeURL -}}
 {{- $personID := printf "%s#danny" $homeURL -}}
+{{- $portrait := (resources.Get "images/danny.jpg").Resize "384x webp q85" -}}
 {{- $projects := slice
-  (dict "@type" "ListItem" "position" 1 "item" (dict "@type" "SoftwareApplication" "name" "elasticctl" "url" "https://github.com/dannyota/elasticctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A Rust CLI and MCP server for operating Elastic Security detection rules as code across self-managed, Elastic Cloud Hosted, and Elastic Cloud Serverless deployments. Remote mutations are previews until --yes."))
-  (dict "@type" "ListItem" "position" 2 "item" (dict "@type" "SoftwareApplication" "name" "splunkctl" "url" "https://splunkctl.danny.vn" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A Python CLI and built-in MCP server for operating Splunk Enterprise, Enterprise Security, and Splunk SOAR as code."))
-  (dict "@type" "ListItem" "position" 3 "item" (dict "@type" "SoftwareApplication" "name" "s1ctl" "url" "https://github.com/dannyota/s1ctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A CLI and built-in MCP server for operating SentinelOne Singularity as code."))
-  (dict "@type" "ListItem" "position" 4 "item" (dict "@type" "SoftwareApplication" "name" "secopsctl" "url" "https://github.com/dannyota/secops" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "description" "A CLI and built-in MCP server for operating Google SecOps, including Chronicle SIEM and Siemplify SOAR, as code."))
-  (dict "@type" "ListItem" "position" 5 "item" (dict "@type" "WebApplication" "name" "aboutme" "url" "https://aboutme.vn" "applicationCategory" "BusinessApplication" "operatingSystem" "Web" "description" "A free, open-source resume builder for Vietnamese and English with public resume links and PDF export."))
+  (dict "@type" "ListItem" "position" 1 "item" (dict "@type" "SoftwareApplication" "name" "elasticctl" "url" "https://github.com/dannyota/elasticctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "sameAs" (slice "https://crates.io/crates/elasticctl") "description" "A Rust CLI and MCP server for operating Elastic Security detection rules as code across self-managed, Elastic Cloud Hosted, and Elastic Cloud Serverless deployments. Remote mutations are previews until --yes."))
+  (dict "@type" "ListItem" "position" 2 "item" (dict "@type" "SoftwareApplication" "name" "splunkctl" "url" "https://splunkctl.danny.vn" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "sameAs" (slice "https://github.com/dannyota/splunkctl" "https://pypi.org/project/splunkctl/") "description" "A Python CLI and built-in MCP server for operating Splunk Enterprise, Enterprise Security, and Splunk SOAR as code."))
+  (dict "@type" "ListItem" "position" 3 "item" (dict "@type" "SoftwareApplication" "name" "s1ctl" "url" "https://github.com/dannyota/s1ctl" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "sameAs" (slice "https://pkg.go.dev/danny.vn/s1") "description" "A CLI and built-in MCP server for operating SentinelOne Singularity as code."))
+  (dict "@type" "ListItem" "position" 4 "item" (dict "@type" "SoftwareApplication" "name" "secopsctl" "url" "https://github.com/dannyota/secops" "applicationCategory" "DeveloperApplication" "operatingSystem" "Linux, macOS, Windows" "sameAs" (slice "https://pkg.go.dev/danny.vn/secops") "description" "A CLI and built-in MCP server for operating Google SecOps, including Chronicle SIEM and Siemplify SOAR, as code."))
+  (dict "@type" "ListItem" "position" 5 "item" (dict "@type" "WebApplication" "name" "aboutme" "url" "https://aboutme.vn" "applicationCategory" "BusinessApplication" "operatingSystem" "Web" "sameAs" (slice "https://github.com/dannyota/aboutme") "description" "A free, open-source resume builder for Vietnamese and English with public resume links and PDF export."))
 -}}
 {{- $graph := slice
   (dict "@type" "WebSite" "@id" $websiteID "url" $homeURL "name" .Site.Params.siteName "alternateName" (slice "danny.vn") "description" .Site.Params.description "inLanguage" .Site.Language.Locale)
   (dict "@type" "ProfilePage" "@id" $homeURL "url" $homeURL "name" .Site.Title "description" .Site.Params.description "inLanguage" .Site.Language.Locale "isPartOf" (dict "@id" $websiteID) "mainEntity" (dict "@id" $personID))
-  (dict "@type" "Person" "@id" $personID "name" .Site.Params.author "alternateName" .Site.Params.siteName "url" $homeURL "jobTitle" "Security Engineer" "homeLocation" (dict "@type" "Country" "name" "Vietnam") "description" .Site.Params.description "sameAs" (slice .Site.Params.github) "knowsAbout" (slice "Cybersecurity" "Security as code" "Rust programming language" "Go programming language" "C programming language" "Python programming language" "Security operations" "Regulatory technology" "Governance, risk management, and compliance"))
+  (dict "@type" "Person" "@id" $personID "name" .Site.Params.author "alternateName" .Site.Params.siteName "url" $homeURL "jobTitle" "Security Engineer" "image" $portrait.Permalink "homeLocation" (dict "@type" "Country" "name" "Vietnam") "description" .Site.Params.description "sameAs" (slice .Site.Params.github) "knowsAbout" (slice "Cybersecurity" "Security as code" "Rust programming language" "Go programming language" "C programming language" "Python programming language" "Security operations" "Regulatory technology" "Governance, risk management, and compliance"))
   (dict "@type" "ItemList" "@id" (printf "%s#projects" $homeURL) "name" "Open-source projects by Danny" "numberOfItems" 5 "itemListOrder" "https://schema.org/ItemListOrderAscending" "itemListElement" $projects)
 -}}
 {{- $structuredData := dict "@context" "https://schema.org" "@graph" $graph -}}

@@ -34,11 +34,11 @@ const llms = readSiteFile("llms.txt");
 const description = metaContent(home, "name", "description");
 
 test("homepage metadata describes current work", () => {
-  const title = "Danny On The Air — Security Engineer in Vietnam";
+  const title = "Danny On The Air: Security Engineer in Vietnam";
 
   assert.match(home, /<html lang=(?:"en-US"|en-US)/);
   assert.match(home, new RegExp(`<title>${title}</title>`));
-  assert.match(description, /Rust, Go, and Python/);
+  assert.match(description, /Splunk, SentinelOne, Google SecOps, and Elastic/);
   assert.match(description, /MCP servers/);
   assert.match(description, /Go SDKs/);
   assert.match(description, /aboutme\.vn/);
@@ -107,12 +107,14 @@ test("homepage markup complies with the strict style policy", () => {
   assert.doesNotMatch(home, /Last login:/);
   assert.doesNotMatch(home, /<span class=(?:"sr-only"|sr-only)>GitHub<\/span>/);
 
-  const icon = home.match(
-    /<link rel=(?:"icon"|icon) href=(?:"([^"]+)"|([^\s>]+))>/,
-  );
-  assert.ok(icon, "missing favicon");
-  assert.equal(icon[1] ?? icon[2], "/favicon.svg");
+  assert.match(home, /<link rel=(?:"icon"|icon) href=(?:"\/favicon\.svg"|\/favicon\.svg) type=image\/svg\+xml>/);
+  assert.match(home, /<link rel=(?:"icon"|icon) href=(?:"\/favicon\.ico"|\/favicon\.ico) sizes=32x32>/);
+  assert.match(home, /<link rel=apple-touch-icon href=(?:"\/apple-touch-icon\.png"|\/apple-touch-icon\.png)>/);
   assert.match(readSiteFile("favicon.svg"), /^<svg /);
+  assert.doesNotMatch(readSiteFile("favicon.svg"), /<text/, "favicon must not depend on fonts or emoji");
+  for (const file of ["favicon.ico", "apple-touch-icon.png", "og.png"]) {
+    assert.ok(existsSync(resolve(siteDir, file)), `missing ${file}`);
+  }
 });
 
 test("JSON-LD is parseable and accurate", () => {
@@ -133,7 +135,7 @@ test("JSON-LD is parseable and accurate", () => {
   assert.equal(person.description, description);
   assert.deepEqual(person.sameAs, ["https://github.com/dannyota"]);
   assert.ok(person.knowsAbout.includes("Rust programming language"));
-  assert.equal(person.image, undefined);
+  assert.match(person.image, /^https:\/\/danny\.vn\/images\/.+\.webp$/);
 
   const projectNames = projects.itemListElement.map((entry) => entry.item.name);
   assert.deepEqual(projectNames, [
@@ -150,8 +152,9 @@ test("machine-readable discovery files match indexing policy", () => {
     (match) => match[1],
   );
   assert.deepEqual(locations, ["https://danny.vn/"]);
-  assert.match(robots, /User-agent: OAI-SearchBot\s+Allow: \//);
-  assert.match(robots, /User-agent: GPTBot\s+Disallow: \//);
+  assert.match(robots, /User-agent: \*\s+Allow: \//);
+  assert.doesNotMatch(robots, /Disallow: \//);
+  assert.match(sitemap, /<lastmod>\d{4}-\d{2}-\d{2}T/);
   assert.match(llms, /\[elasticctl\]\(https:\/\/github\.com\/dannyota\/elasticctl\)/);
   assert.match(llms, /written in Rust/);
   assert.match(llms, /read-only inspection tools/);
